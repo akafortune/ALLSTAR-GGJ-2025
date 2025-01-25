@@ -5,29 +5,55 @@ using UnityEngine;
 public class Button_Door : MonoBehaviour
 {
     public Collider2D myCol;
-    public List<GameObject> buttons;
-    
-    void ButtonHit(GameObject button) //called in button detect script
+    public GameObject moveTarget;
+    List<SpriteRenderer> buttons;
+    bool moveEnd = false;
+
+    void Start()
     {
-        Color buttonSprColor = button.GetComponent<SpriteRenderer>().color;
-        buttonSprColor.a = 0.5f;
-        button.GetComponent<SpriteRenderer>().color = buttonSprColor;
-        bool willOpen = true;
+        buttons = new List<SpriteRenderer>();
         foreach (Transform child in transform)
         {
-            if (child.gameObject.GetComponent<SpriteRenderer>().color.a > 0.5f)
+            buttons.Add(child.gameObject.GetComponent<SpriteRenderer>());
+        }
+    }
+    
+    void ButtonHit(SpriteRenderer curButton) //called in button detect script
+    {
+        Color buttonSprColor = curButton.color;
+        buttonSprColor.a = 0.5f;
+        curButton.color = buttonSprColor;
+
+        Open();
+    }
+
+    void Open()
+    {
+        bool willOpen = true;
+
+        foreach (SpriteRenderer button in buttons)
+        {
+            if (button.color.a > 0.5f)
             {
                 willOpen = false;
             }
         }
         if (willOpen)
         {
-            Open();
+            transform.DetachChildren();
+            myCol.enabled = false;
         }
     }
 
-    void Open()
+    void Update()
     {
-        myCol.enabled = false;
+        if (!myCol.enabled && !moveEnd)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, moveTarget.transform.position, Time.deltaTime * 2f);
+            if (Vector3.Distance(transform.position, moveTarget.transform.position) < 0.2f)
+            {
+                moveEnd = true;
+            }
+        }
     }
 }
