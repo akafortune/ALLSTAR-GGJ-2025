@@ -25,6 +25,7 @@ public class Player_Movement : MonoBehaviour
 
     public GameObject StateCtrl;
     public GameObject cutsceneSpot;
+    bool hasPhone = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,9 +42,13 @@ public class Player_Movement : MonoBehaviour
             InputCheck();
             DashCheck();
         }
-        else
+        else if (hasPhone)
         {
             MoveToRest();
+        }
+        else
+        {
+            playerRB.velocity = new Vector2(0f, 0f);
         }
         
     }
@@ -184,6 +189,7 @@ public class Player_Movement : MonoBehaviour
     {
         if (col.gameObject.tag.Equals("Phone"))
         {
+            hasPhone = true;
             col.gameObject.SetActive(false);
             StateCtrl.SendMessage("HasPhone");
         }

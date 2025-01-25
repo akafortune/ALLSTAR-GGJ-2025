@@ -67,6 +67,10 @@ public class Game_State_Ctrl : MonoBehaviour
                 {
                     TypeControl();
                 }
+                else
+                {
+                    EndLevel();
+                }
                 break;
             default: //Play
                 break;
@@ -124,8 +128,13 @@ public class Game_State_Ctrl : MonoBehaviour
         }
         else //end level
         {
-            Debug.Log("End Level");
+            EndLevel();
         }
+    }
+
+    void EndLevel()
+    {
+        Debug.Log("End Level");
     }
 
 }
