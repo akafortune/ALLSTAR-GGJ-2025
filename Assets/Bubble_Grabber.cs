@@ -29,7 +29,7 @@ public class Bubble_Grabber : MonoBehaviour
     {
         //TOUCH UP
         manager.playerRB.velocity = new Vector2(0, 0);
-        manager.playerRB.gravityScale = 0;
+        //manager.playerRB.gravityScale = 0;
         manager.playerGO.transform.position = Vector2.MoveTowards(manager.playerGO.transform.position, this.gameObject.transform.position, dragSpeed * Time.deltaTime); ;
     }
 
