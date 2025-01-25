@@ -28,22 +28,26 @@ public class SSBubbleScript : MonoBehaviour
 
     public LaunchDirections[] launchDirections = new LaunchDirections[1];
     public GameObject bubbleRadius;
-    public float dashForce;
+    public float vDashForce;
+    public float hDashForce;
     public float dashTime;
     private float dashTimer;
 
     private SlingStates slingState;
     public Bubble_Manager bubble;
     public float windSpeed;
+    public float returnSpeed;
     public float windDistance;
     public UnityEngine.Vector2 windVector;
+    public UnityEngine.Vector2 releaseVector;
+    private UnityEngine.Vector2 bubbleOrigin;
 
-    public float[] sTarget;
     //private Vector2 dashForceVector; 
 
     // Start is called before the first frame update
     void Start()
     {
+        bubbleOrigin = new UnityEngine.Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
         bubble = this.GetComponent<Bubble_Manager>();
 
         //sets the windup distance based on collider radius
@@ -65,8 +69,11 @@ public class SSBubbleScript : MonoBehaviour
     }
 //
     private void OnTriggerEnter2D(Collider2D collision){
-        //Begin Winding up when player enters the bubble
-        slingState = SlingStates.WINDING;
+        if(bubble.bubbleState != Bubble_Manager.BubbleStates.POPPED) {
+            //Begin Winding up when player enters the bubble
+            slingState = SlingStates.WINDING;
+        }
+        //hello        
     }
 
     private void calculateWindDistance() {
@@ -76,55 +83,74 @@ public class SSBubbleScript : MonoBehaviour
 
     private void setWindingTarget() {
         float[] windTarget = new float[2]; //x,y coordinate pair
+        float[] releaseTarget = new float[2];
+
         switch (launchDirections[0])
         {
             case LaunchDirections.UP:
                 windTarget[0] = 0;
                 windTarget[1] = windDistance;
+                releaseTarget[0] = 0;
+                releaseTarget[1] = -windDistance;
                 break;
 
             case LaunchDirections.UP_RIGHT:
                 windTarget[0] = windDistance;
-                windTarget[1] = windDistance;
+                windTarget[1] =windDistance;
+                releaseTarget[0] = windDistance;
+                releaseTarget[1] = -windDistance;
                 break;      
 
             case LaunchDirections.UP_LEFT:
                 windTarget[0] = -windDistance;
                 windTarget[1] = windDistance;
+                releaseTarget[0] = windDistance;
+                releaseTarget[1] = -windDistance;
                 break;  
 
             case LaunchDirections.DOWN:
                 windTarget[0] = 0;
                 windTarget[1] = -windDistance;
+                releaseTarget[0] = 0;
+                releaseTarget[1] = windDistance;
                 break;
 
             case LaunchDirections.DOWN_LEFT:
                 windTarget[0] = -windDistance;
                 windTarget[1] = -windDistance;
+                releaseTarget[0] = windDistance;
+                releaseTarget[1] = windDistance;
                 break;  
             
             case LaunchDirections.DOWN_RIGHT:
                 windTarget[0] = windDistance;
                 windTarget[1] = -windDistance;
+                releaseTarget[0] = -windDistance;
+                releaseTarget[1] = windDistance;
                 break;
 
             case LaunchDirections.LEFT:
                 windTarget[0] = -windDistance;
                 windTarget[1] = 0;
+                releaseTarget[0] = windDistance;
+                releaseTarget[1] = 0;
                 break;
 
             case LaunchDirections.RIGHT:
                 windTarget[0] = windDistance;
                 windTarget[1] = 0;
+                releaseTarget[0] = -windDistance;
+                releaseTarget[1] = 0;
                 break;     
             default:
                 Debug.Log("Please set a Launch Direction in the editor!");
                 break;
         }
-        sTarget = windTarget; //For launching later
+        //sTarget = windTarget; //For launching later
         windVector = new UnityEngine.Vector2(windTarget[0] + this.gameObject.transform.position.x ,windTarget[1] + this.gameObject.transform.position.y); //Movetowards target
+        releaseVector = new UnityEngine.Vector2((releaseTarget[0] * hDashForce), (releaseTarget[1] * vDashForce));
     }
-
+//hello
     private void slingShotManager() {
         switch (slingState)
         {
@@ -155,45 +181,27 @@ public class SSBubbleScript : MonoBehaviour
     }
 
     private void launchPlayer() {
-
-        //Inverse the direction. The base force is weak. Force is added depending on player's
-        //input timing to the center
-        float xval = this.gameObject.transform.position.x + -sTarget[0];
-        float yval = this.gameObject.transform.position.y + -sTarget[1];
-
-        Debug.Log(xval + " + " + yval);
-
-        //dashForceVector = new Vector2(xval,yval);
-        sTarget[0] = xval;
-        sTarget[1] = yval;
-
         Rigidbody2D player = bubble.playerRB;
-        //TODO: may need a new state. I just need all competing bubble logic to cease.
-        //A launch API would also be kinda swell.
-        bubble.bubbleState = Bubble_Manager.BubbleStates.POPPED; 
 
-        //player.AddForce(dashForceVector, ForceMode2D.Impulse);
+        bubble.bubbleState = Bubble_Manager.BubbleStates.POPPED; 
         slingState = SlingStates.LAUNCHING;
         player.gravityScale = 0;
+
+        player.AddForce(releaseVector, ForceMode2D.Impulse);
+        bubble.playerGO.GetComponent<Player_Movement>().dashing = true;
+
     }
 
     private void handleLaunch(){
+        //return the bubble to origin
+        this.gameObject.transform.position = UnityEngine.Vector2.MoveTowards(this.gameObject.transform.position, bubbleOrigin, returnSpeed * Time.deltaTime);
+
         Rigidbody2D player = bubble.playerRB;
         dashTimer += Time.deltaTime;
-
-        //Vector2 dashForceVector = new Vector2(sTarget[0]*dashForce,sTarget[1]*dashForce);
-        UnityEngine.Vector2 dashForceVector = new UnityEngine.Vector2(0,1);
-
-
-        player.AddForce(dashForceVector, ForceMode2D.Impulse);
-        Debug.Log("Handling Launch");
-        bubble.playerGO.GetComponent<Player_Movement>().
-        if(dashTimer >= dashTime)
+        if(dashTimer >= dashTime && this.transform.position.x == bubbleOrigin.x && this.transform.position.y == bubbleOrigin.y)
         {
             dashTimer = 0;
             slingState= SlingStates.FINISHED;
-            player.gravityScale = 1;
-            Debug.Log("Launch Finished");
         }
         
     }
