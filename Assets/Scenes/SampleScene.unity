@@ -675,6 +675,7 @@ MonoBehaviour:
   textObj: {fileID: 1899108860}
   diaBox: {fileID: 1738763348}
   mainCam: {fileID: 1855939229}
+  cutsceneCam: {fileID: 90470418}
 --- !u!1 &1342221719
 GameObject:
   m_ObjectHideFlags: 0

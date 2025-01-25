@@ -14,6 +14,7 @@ public class Game_State_Ctrl : MonoBehaviour
     public TMP_Text textObj;
     public Canvas diaBox;
     public GameObject mainCam;
+    public GameObject cutsceneCam;
 
     int sceneNum = 0;
     int diaNum = 0;
@@ -65,7 +66,7 @@ public class Game_State_Ctrl : MonoBehaviour
         switch (curState)
         {
             case GameState.Cutscene:
-                if (runScene)
+                if (runScene && Vector3.Distance(mainCam.transform.position, cutsceneCam.transform.position) < 0.2f)
                 {
                     TypeControl();
                 }
