@@ -15,19 +15,23 @@ public class Player_Movement : MonoBehaviour
     }
 
     public Directions[] directions = new Directions[2]; // 0 = x 1 = y
-    public float walkForce, dashForce;
-    public bool canDash = false;
+    public float walkForce, vDashForce, hDashForce, dashTime, momentumFalloff, leftoverMomentum;
+    public bool canDash = false, dashing = false;
     public Rigidbody2D playerRB;
+    public Vector2 velocity;
+    public Ground_Checker groundCheck;
     private int x =0, y = 0;
+    private float dashTimer;
     // Start is called before the first frame update
     void Start()
     {
+        groundCheck = this.GetComponentInChildren<Ground_Checker>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        velocity = playerRB.velocity;
         InputCheck();
         DashCheck();
     }
@@ -54,11 +58,26 @@ public class Player_Movement : MonoBehaviour
                 walkDir = -1;
             }
 
-            playerRB.velocity = new Vector2(walkDir * walkForce * Time.deltaTime, playerRB.velocity.y);
+            if (!dashing)
+            {
+                playerRB.velocity = new Vector2((walkDir * walkForce * Time.deltaTime), playerRB.velocity.y) ;
+            }
+
+            
         }
         else
         {
-            playerRB.velocity = new Vector2(0, playerRB.velocity.y);
+            if(!dashing)
+            {
+                if(!groundCheck.grounded)
+                {
+                    playerRB.velocity = new Vector2(playerRB.velocity.x, playerRB.velocity.y);
+                } else
+                {
+                    playerRB.velocity = new Vector2(0, playerRB.velocity.y);
+                }
+                
+            }
         }
     }
 
@@ -100,12 +119,38 @@ public class Player_Movement : MonoBehaviour
         if(Input.GetButtonDown("Dash") && canDash)
         {
             UnityEngine.Debug.Log("Ran");
-            
-            Vector2 dashForceVector = new Vector2(x * dashForce, y * dashForce);
 
-            this.playerRB.AddForce(dashForceVector);
+            Vector2 dashForceVector;
+
+            if (directions[1] == Directions.UP)
+            {
+                dashForceVector = new Vector2(x * vDashForce, y * vDashForce);
+            } else
+            {
+                dashForceVector = new Vector2(x* hDashForce, y* hDashForce);
+            }
+            
+
+            this.playerRB.AddForce(dashForceVector, ForceMode2D.Impulse);
 
             canDash = false;
+
+            dashing= true;
+
+            playerRB.gravityScale = 0;
         }
+
+        if (dashing)
+        {
+            dashTimer += Time.deltaTime;
+
+            if(dashTimer >= dashTime)
+            {
+                dashTimer = 0;
+                dashing= false;
+                playerRB.gravityScale = 1;
+            }
+        }
+
     }
 }
