@@ -16,16 +16,30 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Audio;
 
     #region AudioSources
+    [Header("Music")]
     [SerializeField] private AudioSource _music;
     private bool _musicPlaying = false;
 
+
+    [Header("Bubble")]
     [SerializeField] private AudioSource _bubblePop;
     [SerializeField] private AudioSource _bubbleEntry;
     [SerializeField] private AudioSource _bubbleExit;
+    [SerializeField] private AudioSource _bubbleReform;
+
+    [Header("Phone")]
     [SerializeField] private AudioSource _phoneRing;
-    [SerializeField] private AudioSource _fall;
     private bool _phoneRingPlaying = false;
+    [SerializeField] private AudioSource _phoneTalk;
+    [SerializeField] private AudioSource _phonePickUp;
+    [SerializeField] private AudioSource _phoneHangUp;
+    [SerializeField] private AudioSource _phoneTone;
+    private bool _phoneTonePlaying = false;
+
+    [Header("Movement")]
+    [SerializeField] private AudioSource _fall;
     private bool _fallPlaying = false;
+    [SerializeField] private AudioSource _cloudLand;
     #endregion
 
     #region Awake
@@ -91,6 +105,32 @@ public class AudioManager : MonoBehaviour
             case SFX.BUBBLE_EXIT:
                 _bubbleExit.Play();
                 break;
+            case SFX.BUBBLE_REFORM:
+                _bubbleReform.Play();
+                break;
+            case SFX.PHONE_TALK:
+                PlayPhoneTalk();
+                break;
+            case SFX.PHONE_PICK_UP:
+                if (_phoneRingPlaying)
+                {
+                    _phoneRing.Stop();
+                    _phoneRingPlaying = false;
+                }
+                _phonePickUp.Play();
+                break;
+            case SFX.PHONE_TONE:
+                _phoneTone.Play();
+                _phoneTonePlaying = true;
+                break;
+            case SFX.PHONE_HANG_UP:
+                if(_phoneTonePlaying)
+                {
+                    _phoneTone.Stop();
+                    _phoneTonePlaying = false;
+                }
+                _phoneHangUp.Play();
+                break;
             case SFX.PHONE_RING:
                 if (!_phoneRingPlaying)
                 {
@@ -114,10 +154,42 @@ public class AudioManager : MonoBehaviour
                     _fallPlaying = false;
                 }
                 break;
+            case SFX.CLOUD_LAND:
+                if (_fallPlaying)
+                {
+                    _fall.Stop();
+                    _fallPlaying = false;
+                }
+                _cloudLand.Play();
+                break;
         }
     }
+
+    private void PlayPhoneTalk()
+    {
+        int rnd = UnityEngine.Random.Range(0, 3);
+        Debug.Log(rnd);
+
+        if(rnd == 0)
+        {
+            _phoneTalk.clip = Resources.Load<AudioClip>("SFX/PhoneSounds/PHONE_TALK_1");
+            Debug.Log("1");
+        }
+        else if(rnd == 1)
+        {
+            _phoneTalk.clip = Resources.Load<AudioClip>("SFX/PhoneSounds/PHONE_TALK_2");
+            Debug.Log("2");
+        }
+        else
+        {
+            _phoneTalk.clip = Resources.Load<AudioClip>("SFX/PhoneSounds/PHONE_TALK_3");
+            Debug.Log("3");
+        }
+        _phoneTalk.Play();
+    }
     #endregion
-    
-    public enum SFX { PHONE_RING, BUBBLE_ENTRY, BUBBLE_EXIT, BUBBLE_POP, FALL }
+
+    public enum SFX { PHONE_RING, BUBBLE_ENTRY, BUBBLE_EXIT, BUBBLE_POP, BUBBLE_REFORM, FALL, 
+        CLOUD_LAND, PHONE_TALK, PHONE_TONE, PHONE_PICK_UP, PHONE_HANG_UP }
     public enum MUSIC { LEVEL }
 }
