@@ -9,11 +9,13 @@ public class Button_Door : MonoBehaviour
     
     void ButtonHit(GameObject button) //called in button detect script
     {
-        button.SetActive(false);
+        Color buttonSprColor = button.GetComponent<SpriteRenderer>().color;
+        buttonSprColor.a = 0.5f;
+        button.GetComponent<SpriteRenderer>().color = buttonSprColor;
         bool willOpen = true;
         foreach (Transform child in transform)
         {
-            if (child.gameObject.activeInHierarchy)
+            if (child.gameObject.GetComponent<SpriteRenderer>().color.a > 0.5f)
             {
                 willOpen = false;
             }
@@ -26,6 +28,6 @@ public class Button_Door : MonoBehaviour
 
     void Open()
     {
-        this.gameObject.SetActive(false);
+        myCol.enabled = false;
     }
 }
