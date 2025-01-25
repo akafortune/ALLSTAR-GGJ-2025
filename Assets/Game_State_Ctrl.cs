@@ -43,6 +43,8 @@ public class Game_State_Ctrl : MonoBehaviour
         allScenes = new List<List<string>> { sceneA, sceneB, sceneC };
 
         curScene = allScenes[sceneNum];
+
+        textObj.gameObject.SetActive(false);
     }
 
     void Update()
@@ -76,6 +78,7 @@ public class Game_State_Ctrl : MonoBehaviour
     {
         if (sceneUnlocked)
         {
+            textObj.gameObject.SetActive(true);
             curScene = allScenes[sceneNum];
             RunDialogue();
             if (timer < timePerChar)
