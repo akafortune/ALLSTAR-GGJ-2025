@@ -24,14 +24,12 @@ public class Player_Movement : MonoBehaviour
     private float dashTimer;
 
     public GameObject StateCtrl;
-    GameObject cutsceneSpot;
+    public GameObject cutsceneSpot;
 
     // Start is called before the first frame update
     void Start()
     {
         groundCheck = this.GetComponentInChildren<Ground_Checker>();
-
-        cutsceneSpot = GameObject.Find("PlayerRestPoint");
     }
 
     // Update is called once per frame

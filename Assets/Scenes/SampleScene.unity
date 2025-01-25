@@ -1012,6 +1012,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   groundCheck: {fileID: 0}
   StateCtrl: {fileID: 1126321348}
+  cutsceneSpot: {fileID: 828835676}
 --- !u!1 &1488786977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1310277455833813925, guid: 2d5887b93bfb0d24db48bec8a8499a9d, type: 3}
