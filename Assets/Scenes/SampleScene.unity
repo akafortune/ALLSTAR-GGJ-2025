@@ -421,7 +421,8 @@ Transform:
   m_LocalPosition: {x: 1.5177, y: 1.7300745, z: -0.2803983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1368862501}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1126321350
@@ -437,8 +438,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textObj: {fileID: 1899108860}
-  typeSpd: 0.1
-  timePerChar: 2
 --- !u!1 &1342221719
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,13 +657,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368862498}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.5177, y: -1.7300745, z: 0.2803983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1738763345}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1126321349}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1376743606
 GameObject:
@@ -974,7 +973,7 @@ GameObject:
   - component: {fileID: 1899108861}
   - component: {fileID: 1899108860}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DialogueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1480,4 +1479,3 @@ SceneRoots:
   - {fileID: 4694956374041947101}
   - {fileID: 5450011651593242255}
   - {fileID: 1126321349}
-  - {fileID: 1368862501}
