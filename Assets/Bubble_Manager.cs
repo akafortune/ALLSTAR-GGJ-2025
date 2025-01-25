@@ -25,7 +25,7 @@ public class Bubble_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(bubbleState == BubbleStates.UNOCCUPIED)
+        if(bubbleState == BubbleStates.UNOCCUPIED || bubbleState == BubbleStates.OCCUPIED)
         {
             IndicatorCheck();
         }
