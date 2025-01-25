@@ -22,9 +22,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _bubblePop;
     [SerializeField] private AudioSource _bubbleEntry;
     [SerializeField] private AudioSource _bubbleExit;
-    [SerializeField] private AudioSource _phone;
+    [SerializeField] private AudioSource _phoneRing;
     [SerializeField] private AudioSource _fall;
-    private bool _phonePlaying = false;
+    private bool _phoneRingPlaying = false;
     private bool _fallPlaying = false;
     #endregion
 
@@ -92,14 +92,14 @@ public class AudioManager : MonoBehaviour
                 _bubbleExit.Play();
                 break;
             case SFX.PHONE_RING:
-                if (!_phonePlaying)
+                if (!_phoneRingPlaying)
                 {
-                    _phone.Play();
-                    _phonePlaying = true;
+                    _phoneRing.Play();
+                    _phoneRingPlaying = true;
                 } else
                 {
-                    _phone.Stop();
-                    _phonePlaying = false;
+                    _phoneRing.Stop();
+                    _phoneRingPlaying = false;
                 }
                 break;
             case SFX.FALL:
