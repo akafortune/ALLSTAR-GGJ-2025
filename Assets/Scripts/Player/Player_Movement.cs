@@ -23,14 +23,15 @@ public class Player_Movement : MonoBehaviour
     private int x =0, y = 0;
     private float dashTimer;
 
-    bool hasPhone = false;
-
     public GameObject StateCtrl;
+    GameObject cutsceneSpot;
 
     // Start is called before the first frame update
     void Start()
     {
         groundCheck = this.GetComponentInChildren<Ground_Checker>();
+
+        cutsceneSpot = GameObject.Find("PlayerRestPoint");
     }
 
     // Update is called once per frame
@@ -42,6 +43,11 @@ public class Player_Movement : MonoBehaviour
             InputCheck();
             DashCheck();
         }
+        else
+        {
+            MoveToRest();
+        }
+        
     }
 
     private void FixedUpdate()
@@ -52,6 +58,18 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
+
+    void MoveToRest()
+    {
+        if (Vector3.Distance(transform.position, cutsceneSpot.transform.position) > 0.2f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, cutsceneSpot.transform.position, Time.deltaTime * 10f);
+        }
+        else
+        {
+            StateCtrl.SendMessage("TypeControl");
+        }
+    }
 
     void WalkCheck()
     {
@@ -168,7 +186,6 @@ public class Player_Movement : MonoBehaviour
     {
         if (col.gameObject.tag.Equals("Phone"))
         {
-            hasPhone = true;
             col.gameObject.SetActive(false);
             StateCtrl.SendMessage("HasPhone");
         }

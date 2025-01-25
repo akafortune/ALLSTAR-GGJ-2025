@@ -60,10 +60,6 @@ public class Game_State_Ctrl : MonoBehaviour
         switch (curState)
         {
             case GameState.Cutscene:
-                if (sceneUnlocked)
-                {
-                    TypeControl();
-                }
                 //else: end level
                 break;
             default: //Play
@@ -76,19 +72,23 @@ public class Game_State_Ctrl : MonoBehaviour
         sceneUnlocked = true;
     }
 
-    void TypeControl() //Typewriter effect
+    void TypeControl() //Typewriter effect; activated by player script when pos done being set
     {
-        curScene = allScenes[sceneNum];
-        RunDialogue();
-        if (timer < timePerChar)
+        if (sceneUnlocked)
         {
-            timer += typeSpd;
+            curScene = allScenes[sceneNum];
+            RunDialogue();
+            if (timer < timePerChar)
+            {
+                timer += typeSpd;
+            }
+            else if (charIndex < curScene[diaNum].Length)
+            {
+                charIndex++;
+                timer = 0f;
+            }
         }
-        else if (charIndex < curScene[diaNum].Length)
-        {
-            charIndex++;
-            timer = 0f;
-        }
+        //else: end level
     }
 
     void RunDialogue() //Display and input
