@@ -30,6 +30,7 @@ public class Game_State_Ctrl : MonoBehaviour
     int charIndex = 0;
 
     bool sceneUnlocked = false;
+    bool runScene = false;
 
     void Start()
     {
@@ -62,7 +63,10 @@ public class Game_State_Ctrl : MonoBehaviour
         switch (curState)
         {
             case GameState.Cutscene:
-                //else: end level
+                if (runScene)
+                {
+                    TypeControl();
+                }
                 break;
             default: //Play
                 break;
@@ -74,24 +78,29 @@ public class Game_State_Ctrl : MonoBehaviour
         sceneUnlocked = true;
     }
 
-    void TypeControl() //Typewriter effect; activated by player script when pos done being set
+    void StartCutscene()
     {
         if (sceneUnlocked)
         {
-            textObj.gameObject.SetActive(true);
-            curScene = allScenes[sceneNum];
-            RunDialogue();
-            if (timer < timePerChar)
-            {
-                timer += typeSpd;
-            }
-            else if (charIndex < curScene[diaNum].Length)
-            {
-                charIndex++;
-                timer = 0f;
-            }
+            runScene = true;
         }
         //else: end level
+    }
+
+    void TypeControl() //Typewriter effect; activated by player script when pos done being set
+    {
+        textObj.gameObject.SetActive(true);
+        curScene = allScenes[sceneNum];
+        RunDialogue();
+        if (timer < timePerChar)
+        {
+            timer += typeSpd;
+        }
+        else if (charIndex < curScene[diaNum].Length)
+        {
+            charIndex++;
+            timer = 0f;
+        }
     }
 
     void RunDialogue() //Display and input

@@ -67,7 +67,7 @@ public class Player_Movement : MonoBehaviour
         }
         else
         {
-            StateCtrl.SendMessage("TypeControl");
+            StateCtrl.SendMessage("StartCutscene");
         }
     }
 
