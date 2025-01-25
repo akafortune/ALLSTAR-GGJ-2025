@@ -964,6 +964,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7958683369649669859, guid: 8c5dea02a4dc9554da87363da11df447, type: 3}
+      propertyPath: doorSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958683369649669859, guid: 8c5dea02a4dc9554da87363da11df447, type: 3}
       propertyPath: moveTarget
       value: 
       objectReference: {fileID: 1488786977}

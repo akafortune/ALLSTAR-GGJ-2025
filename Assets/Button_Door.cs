@@ -6,6 +6,9 @@ public class Button_Door : MonoBehaviour
 {
     public Collider2D myCol;
     public GameObject moveTarget;
+
+    public float doorSpeed;
+
     List<SpriteRenderer> buttons;
     bool moveEnd = false;
 
@@ -49,7 +52,7 @@ public class Button_Door : MonoBehaviour
     {
         if (!myCol.enabled && !moveEnd)
         {
-            transform.position = Vector3.MoveTowards(transform.position, moveTarget.transform.position, Time.deltaTime * 2f);
+            transform.position = Vector3.MoveTowards(transform.position, moveTarget.transform.position, Time.deltaTime * doorSpeed);
             if (Vector3.Distance(transform.position, moveTarget.transform.position) < 0.2f)
             {
                 moveEnd = true;
