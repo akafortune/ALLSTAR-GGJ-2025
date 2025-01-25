@@ -11,7 +11,7 @@ public class Respawn_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currRespawnPos = respawnPosArr[respawnIndex];
     }
 
     // Update is called once per frame

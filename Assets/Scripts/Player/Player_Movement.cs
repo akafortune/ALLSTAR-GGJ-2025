@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Player_Movement : MonoBehaviour
     public Rigidbody2D playerRB;
     public Vector2 velocity;
     public Ground_Checker groundCheck;
+    public UnityEvent deathEvent;
     private int x =0, y = 0;
     private float dashTimer;
     // Start is called before the first frame update
@@ -39,7 +41,6 @@ public class Player_Movement : MonoBehaviour
     private void FixedUpdate()
     {
         WalkCheck();
-        
     }
 
 
@@ -152,5 +153,14 @@ public class Player_Movement : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Hazard"))
+        {
+            this.transform.position = Respawn_Manager.currRespawnPos.position;
+            deathEvent.Invoke();
+        }
     }
 }

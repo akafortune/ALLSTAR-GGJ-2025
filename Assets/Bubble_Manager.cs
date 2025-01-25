@@ -16,18 +16,75 @@ public class Bubble_Manager : MonoBehaviour
     public Rigidbody2D playerRB;
     public GameObject playerGO;
     public GameObject bubbleRadius;
+    public float bubbleRespawnTime, bubbleHoldTimer;
+    private float bHTInitial;
+    private float bubbleRespawnTimer = 0;
+    private bool resetRan = false;
+    private Vector2 initialScale;
     // Start is called before the first frame update
     void Start()
     {
-        
+        initialScale = new Vector2(this.transform.localScale.x, this.transform.localScale.y);
+        bHTInitial = bubbleHoldTimer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(bubbleState == BubbleStates.UNOCCUPIED || bubbleState == BubbleStates.OCCUPIED)
+        if (bubbleState == BubbleStates.OCCUPIED)
         {
-            IndicatorCheck();
+            BubbleHoldTimer();
+        }
+
+        if (bubbleState == BubbleStates.POPPED)
+        {
+            if(!resetRan)
+            {
+                BubbleReset();
+                resetRan= true;
+            }
+
+            BubbleRespawnTimer();
+            this.transform.localScale = initialScale;
+        }
+
+        
+
+        IndicatorCheck();
+    }
+
+    void BubbleHoldTimer()
+    {
+        bubbleHoldTimer -= Time.deltaTime;
+        float timeRatio = bubbleHoldTimer / bHTInitial;
+
+        if(timeRatio > 0)
+        {
+            this.transform.localScale = initialScale * timeRatio;
+        }
+        
+
+        if(bubbleHoldTimer <= 0)
+        {
+            bubbleHoldTimer = bHTInitial;
+            this.transform.localScale = initialScale;
+            bubbleState = BubbleStates.POPPED;
+        }
+    }
+
+    void BubbleRespawnTimer()
+    {
+        bubbleRespawnTimer += Time.deltaTime;
+        bubbleRadius.SetActive(false);
+        this.transform.localScale = initialScale * bubbleRespawnTimer/bubbleRespawnTime;
+
+        if(bubbleRespawnTimer> bubbleRespawnTime)
+        {
+            bubbleRespawnTimer = 0;
+            bubbleState = BubbleStates.UNOCCUPIED;
+            bubbleRadius.SetActive(true);
+            this.GetComponent<BoxCollider2D>().enabled = true;
+            resetRan = false;
         }
     }
 
@@ -41,6 +98,11 @@ public class Bubble_Manager : MonoBehaviour
         {
             this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
+
+        if(bubbleState == BubbleStates.POPPED)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,5 +114,15 @@ public class Bubble_Manager : MonoBehaviour
             bubbleState = BubbleStates.OCCUPIED;
             playerGO.GetComponent<Player_Movement>().canDash = true;
         }
+    }
+
+    public void BubbleReset()
+    {
+        bubbleState = BubbleStates.POPPED;
+        bubbleHoldTimer = bHTInitial;
+        bubbleRespawnTimer = 0;
+        playerRB = null;
+        playerGO = null;
+        this.GetComponent<BoxCollider2D>().enabled = false;
     }
 }
