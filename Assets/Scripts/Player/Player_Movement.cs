@@ -22,6 +22,11 @@ public class Player_Movement : MonoBehaviour
     public Ground_Checker groundCheck;
     private int x =0, y = 0;
     private float dashTimer;
+
+    public GameObject StateCtrl;
+    public GameObject cutsceneSpot;
+    bool hasPhone = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,17 +36,43 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity = playerRB.velocity;
-        InputCheck();
-        DashCheck();
+        if (Game_State_Ctrl.curState == Game_State_Ctrl.GameState.Play)
+        {
+            velocity = playerRB.velocity;
+            InputCheck();
+            DashCheck();
+        }
+        else if (hasPhone)
+        {
+            MoveToRest();
+        }
+        else
+        {
+            playerRB.velocity = new Vector2(0f, 0f);
+        }
+        
     }
 
     private void FixedUpdate()
     {
-        WalkCheck();
-        
+        if (Game_State_Ctrl.curState == Game_State_Ctrl.GameState.Play)
+        {
+            WalkCheck();
+        }
     }
 
+
+    void MoveToRest()
+    {
+        if (Vector3.Distance(transform.position, cutsceneSpot.transform.position) > 0.2f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, cutsceneSpot.transform.position, Time.deltaTime * 10f);
+        }
+        else
+        {
+            StateCtrl.SendMessage("StartCutscene");
+        }
+    }
 
     void WalkCheck()
     {
@@ -152,5 +183,19 @@ public class Player_Movement : MonoBehaviour
             }
         }
 
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag.Equals("Phone"))
+        {
+            hasPhone = true;
+            col.gameObject.SetActive(false);
+            StateCtrl.SendMessage("HasPhone");
+        }
+        if (col.gameObject.tag.Equals("Finish"))
+        {
+            StateCtrl.SendMessage("ChangeState", Game_State_Ctrl.GameState.Cutscene);
+        }
     }
 }
