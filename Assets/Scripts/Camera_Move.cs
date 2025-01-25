@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Camera_Move : MonoBehaviour
 {
-
+    public GameObject cutsceneCam;
     public List<GameObject> virtCams;
     int camCt;
 
@@ -27,5 +27,15 @@ public class Camera_Move : MonoBehaviour
             virtCams[camCt].SetActive(true);
             virtCams[virtCams.Count - 1].SetActive(false);
         }
+    }
+
+    void CutsceneCamSet()
+    {
+        foreach (GameObject camObj in virtCams)
+        {
+            camObj.SetActive(false);
+        }
+
+        cutsceneCam.SetActive(true);
     }
 }

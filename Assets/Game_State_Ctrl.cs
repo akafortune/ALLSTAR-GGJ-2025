@@ -12,6 +12,7 @@ public class Game_State_Ctrl : MonoBehaviour
     public static GameState curState;
 
     public TMP_Text textObj;
+    public GameObject mainCam;
 
     int sceneNum = 0;
     int diaNum = 0;
@@ -86,6 +87,7 @@ public class Game_State_Ctrl : MonoBehaviour
     {
         if (sceneUnlocked)
         {
+            mainCam.SendMessage("CutsceneCamSet");
             runScene = true;
         }
         //else: end level
