@@ -6,11 +6,12 @@ using TMPro;
 
 //https://medium.com/@jonbednez/how-to-create-typewriter-effect-in-ui-with-unity-a-step-by-step-tutorial-bcd6d33d86d4
 
-public enum GameState { Play, Cutscene};
-
 public class Game_State_Ctrl : MonoBehaviour
 {
-    GameState curState;
+    public enum GameState { Play, Cutscene };
+    public static GameState curState;
+
+    public TMP_Text textObj;
 
     int sceneNum = 0;
     int diaNum = 0;
@@ -21,20 +22,18 @@ public class Game_State_Ctrl : MonoBehaviour
     List<string> sceneA;
     List<string> sceneB;
     List<string> sceneC;
-
-    public TMP_Text textObj;
+    List<string> curScene;
 
     float typeSpd = 0.1f;
     float timePerChar = 2f;
     float timer = 0;
     int charIndex = 0;
 
-    List<string> curScene;
-
+    bool sceneUnlocked = false;
 
     void Start()
     {
-        curState = GameState.Cutscene;
+        curState = GameState.Play;
 
         diaKey = KeyCode.LeftShift;
 
@@ -51,16 +50,30 @@ public class Game_State_Ctrl : MonoBehaviour
         RunState();
     }
 
+    void ChangeState(GameState state)
+    {
+        curState = state;
+    }
+
     void RunState()
     {
         switch (curState)
         {
             case GameState.Cutscene:
-                TypeControl();
+                if (sceneUnlocked)
+                {
+                    TypeControl();
+                }
+                //else: end level
                 break;
             default: //Play
                 break;
         }
+    }
+
+    void HasPhone()
+    {
+        sceneUnlocked = true;
     }
 
     void TypeControl() //Typewriter effect
@@ -97,9 +110,9 @@ public class Game_State_Ctrl : MonoBehaviour
                 timer = 0;
             }
         }
-        else
+        else //end level
         {
-            Debug.Log("End Scene");
+            Debug.Log("End Level");
         }
     }
 

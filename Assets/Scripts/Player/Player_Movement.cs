@@ -22,6 +22,11 @@ public class Player_Movement : MonoBehaviour
     public Ground_Checker groundCheck;
     private int x =0, y = 0;
     private float dashTimer;
+
+    bool hasPhone = false;
+
+    public GameObject StateCtrl;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,15 +36,20 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity = playerRB.velocity;
-        InputCheck();
-        DashCheck();
+        if (Game_State_Ctrl.curState == Game_State_Ctrl.GameState.Play)
+        {
+            velocity = playerRB.velocity;
+            InputCheck();
+            DashCheck();
+        }
     }
 
     private void FixedUpdate()
     {
-        WalkCheck();
-        
+        if (Game_State_Ctrl.curState == Game_State_Ctrl.GameState.Play)
+        {
+            WalkCheck();
+        }
     }
 
 
@@ -152,5 +162,19 @@ public class Player_Movement : MonoBehaviour
             }
         }
 
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag.Equals("Phone"))
+        {
+            hasPhone = true;
+            col.gameObject.SetActive(false);
+            StateCtrl.SendMessage("HasPhone");
+        }
+        if (col.gameObject.tag.Equals("Finish"))
+        {
+            StateCtrl.SendMessage("ChangeState", Game_State_Ctrl.GameState.Cutscene);
+        }
     }
 }
