@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bubble_Area : MonoBehaviour
 {
+    public bool inRange = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class Bubble_Area : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player"))
         {
             collision.gameObject.GetComponent<Player_Movement>().canDash = true;
+            inRange= true;
         }
     }
 
@@ -29,6 +31,7 @@ public class Bubble_Area : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player"))
         {
             collision.gameObject.GetComponent<Player_Movement>().canDash = false;
+            inRange= false;
         }
     }
 }
