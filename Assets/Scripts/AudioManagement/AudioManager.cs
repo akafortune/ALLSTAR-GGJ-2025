@@ -23,7 +23,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _bubbleEntry;
     [SerializeField] private AudioSource _bubbleExit;
     [SerializeField] private AudioSource _phone;
+    [SerializeField] private AudioSource _fall;
     private bool _phonePlaying = false;
+    private bool _fallPlaying = false;
     #endregion
 
     #region Awake
@@ -100,10 +102,22 @@ public class AudioManager : MonoBehaviour
                     _phonePlaying = false;
                 }
                 break;
+            case SFX.FALL:
+                if(!_fallPlaying)
+                {
+                    _fall.Play();
+                    _fallPlaying = true;
+                }
+                else
+                {
+                    _fall.Stop();
+                    _fallPlaying = false;
+                }
+                break;
         }
     }
     #endregion
     
-    public enum SFX { PHONE_RING, BUBBLE_ENTRY, BUBBLE_EXIT, BUBBLE_POP }
+    public enum SFX { PHONE_RING, BUBBLE_ENTRY, BUBBLE_EXIT, BUBBLE_POP, FALL }
     public enum MUSIC { LEVEL }
 }
