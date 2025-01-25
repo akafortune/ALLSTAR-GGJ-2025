@@ -1315,7 +1315,7 @@ GameObject:
   - component: {fileID: 2091835262}
   - component: {fileID: 2091835261}
   m_Layer: 0
-  m_Name: Square
+  m_Name: CameraTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1402,7 +1402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 519420031}
   myCol: {fileID: 2091835262}
-  timerBound: 200
+  timerBound: 300
 --- !u!61 &2091835262
 BoxCollider2D:
   m_ObjectHideFlags: 0
