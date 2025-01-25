@@ -12,6 +12,7 @@ public class Game_State_Ctrl : MonoBehaviour
     public static GameState curState;
 
     public TMP_Text textObj;
+    public Canvas diaBox;
     public GameObject mainCam;
 
     int sceneNum = 0;
@@ -46,7 +47,7 @@ public class Game_State_Ctrl : MonoBehaviour
 
         curScene = allScenes[sceneNum];
 
-        textObj.gameObject.SetActive(false);
+        diaBox.gameObject.SetActive(false);
     }
 
     void Update()
@@ -95,7 +96,7 @@ public class Game_State_Ctrl : MonoBehaviour
 
     void TypeControl() //Typewriter effect; activated by player script when pos done being set
     {
-        textObj.gameObject.SetActive(true);
+        diaBox.gameObject.SetActive(true);
         curScene = allScenes[sceneNum];
         RunDialogue();
         if (timer < timePerChar)
