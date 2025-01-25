@@ -80,13 +80,13 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetAxis("Vertical") > 0)
         {
-            directions[1] = Directions.DOWN;
-            y = -1;
+            directions[1] = Directions.UP;
+            y = 1;
         }
         else if (Input.GetAxis("Vertical") < 0)
         {
-            directions[1] = Directions.UP;
-            y = 1;
+            directions[1] = Directions.DOWN;
+            y = -1;
         }
         else
         {
