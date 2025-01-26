@@ -44,6 +44,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _hangUpClick;
     [SerializeField] private AudioSource _hangUpTone;
     private bool _hangUpTonePlaying = false;
+    [SerializeField] private AudioSource _yay;
 
     [Header("Movement")]
     [SerializeField] private AudioSource _fall;
@@ -54,6 +55,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Environment")]
     [SerializeField] private AudioSource _door;
+    [SerializeField] private AudioSource _ding;
 
     [Header("UI")]
     [SerializeField] private AudioSource _uiHover;
@@ -92,7 +94,11 @@ public class AudioManager : MonoBehaviour
             {SFX.UI_SELECT, PlayUISelect },
             {SFX.UI_HOVER, PlayUIHover },
             {SFX.GAME_ENTRANCE, PlayGameEntrance },
-            {SFX.DESTRUCTIVE_POP, DestructivePop }
+            {SFX.DESTRUCTIVE_POP, DestructivePop },
+            {SFX.YAY, PlayYay },
+            {SFX.DING, PlayDing },
+            {SFX.FISH_TALK, PlayFishTalk },
+            {SFX.JELLY_TALK, PlayJellyTalk }
         };
 
         MusicCalls = new Dictionary<MUSIC, Action>
@@ -178,6 +184,16 @@ public class AudioManager : MonoBehaviour
     private void PlayUIHover()
     {
         _uiHover.Play();
+    }
+
+    private void PlayDing()
+    {
+        _ding.Play();
+    }
+
+    private void PlayYay()
+    {
+        _yay.Play();
     }
 
     private void PlayGameEntrance()
@@ -372,12 +388,55 @@ public class AudioManager : MonoBehaviour
         }
         _phoneTalk.Play();
     }
+
+    private void PlayFishTalk()
+    {
+        string path = "SFX/PhoneSounds/CharacterVoices/FISHANDCHIPS/";
+        int rnd = UnityEngine.Random.Range(0, 3);
+        Debug.Log(rnd);
+
+        if (rnd == 0)
+        {
+            _phoneTalk.clip = Resources.Load<AudioClip>(path + "FISH_TALK_1");
+        }
+        else if (rnd == 1)
+        {
+            _phoneTalk.clip = Resources.Load<AudioClip>(path + "FISH_TALK_2");
+        }
+        else if (rnd == 2)
+        {
+            _phoneTalk.clip = Resources.Load<AudioClip>(path + "FISH_TALK_3");
+        }
+        _phoneTalk.Play();
+    }
+
+    private void PlayJellyTalk()
+    {
+        string path = "SFX/PhoneSounds/CharacterVoices/JELLY/";
+        int rnd = UnityEngine.Random.Range(0, 3);
+        Debug.Log(rnd);
+
+        if (rnd == 0)
+        {
+            _phoneTalk.clip = Resources.Load<AudioClip>(path + "JELLY_TALK_1");
+        }
+        else if (rnd == 1)
+        {
+            _phoneTalk.clip = Resources.Load<AudioClip>(path + "JELLY_TALK_2");
+        }
+        else if (rnd == 2)
+        {
+            _phoneTalk.clip = Resources.Load<AudioClip>(path + "JELLY_TALK_3");
+        }
+        _phoneTalk.Play();
+    }
     #endregion
 
     #region Enums
     public enum SFX { PHONE_RING, BUBBLE_ENTRY, BUBBLE_EXIT, BUBBLE_POP, BUBBLE_REFORM, FALL, 
         CLOUD_LAND, PHONE_TALK, HANG_UP_TONE, PICK_UP_CLICK, HANG_UP_CLICK, SQUARE_BOUNCE,
-        BURGER_TALK, SCUTTLE, DOOR, UI_HOVER, UI_SELECT, GAME_ENTRANCE, DESTRUCTIVE_POP }
+        BURGER_TALK, SCUTTLE, DOOR, UI_HOVER, UI_SELECT, GAME_ENTRANCE, DESTRUCTIVE_POP, YAY,
+        DING, FISH_TALK, JELLY_TALK }
     public enum MUSIC { LEVEL_1, LEVEL_2, LEVEL_3, TITLE }
     #endregion
 }
