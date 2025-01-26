@@ -63,8 +63,6 @@ public class Player_Movement : MonoBehaviour
             {
                 playerRB.velocity = new Vector2((walkDir * walkForce * Time.deltaTime), playerRB.velocity.y) ;
             }
-
-            
         }
         else
         {
