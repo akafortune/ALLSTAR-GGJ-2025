@@ -61,10 +61,13 @@ public class Cutscene_Control : MonoBehaviour
         if(csState== CutsceneState.ENTER)
         {
             MoveToMark(enterMark, true);
+            player.GetComponent<Player_Movement>().movementState = Player_Movement.MovementState.WALK;
         }
 
         if(csState == CutsceneState.TALK)
         {
+            player.GetComponent<Player_Movement>().movementState = Player_Movement.MovementState.CALLING;
+
             if(!coroutineStarted)
             {
                 StartCoroutine(Typewriter());
@@ -88,11 +91,13 @@ public class Cutscene_Control : MonoBehaviour
             
             MoveToMark(exitMark, false);
             Fade();
+            player.GetComponent<Player_Movement>().movementState = Player_Movement.MovementState.DASH;
         }
 
         if(csState == CutsceneState.FLYIN)
         {
             MoveToMark(levelEntry, false);
+            player.GetComponent<Player_Movement>().movementState = Player_Movement.MovementState.DASH;
         }
     }
 

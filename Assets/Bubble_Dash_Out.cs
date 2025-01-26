@@ -25,6 +25,7 @@ public class Bubble_Dash_Out : MonoBehaviour
     {
         if (Input.GetButtonDown("Dash"))
         {
+            manager.playerGO.GetComponent<Player_Movement>().inBubble = false;
             manager.playerGO.GetComponent<Player_Movement>().DashCheck();
             manager.BubbleReset();
             /*

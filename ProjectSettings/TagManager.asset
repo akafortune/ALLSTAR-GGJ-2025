@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hazard
+  - Phone
+  - Button
+  - Ground
   layers:
   - Default
   - TransparentFX

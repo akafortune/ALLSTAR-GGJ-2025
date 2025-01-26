@@ -35,16 +35,20 @@ public class Bubble_Manager : MonoBehaviour
         if (bubbleState == BubbleStates.OCCUPIED)
         {
             BubbleHoldTimer();
+            playerGO.GetComponent<Player_Movement>().inBubble= true;
         }
 
         if (bubbleState == BubbleStates.POPPED)
         {
-            if(!resetRan)
+            playerGO.GetComponent<Player_Movement>().inBubble = false;
+
+            if (!resetRan)
             {
                 BubbleReset();
                 resetRan= true;
             }
 
+            
             BubbleRespawnTimer();
             this.transform.localScale = initialScale;
         }

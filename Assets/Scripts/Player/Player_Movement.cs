@@ -15,32 +15,119 @@ public class Player_Movement : MonoBehaviour
         LEFT
     }
 
+    public enum MovementState
+    {
+        STAND,
+        WALK,
+        DASH,
+        DEATH,
+        HOVER,
+        FALL,
+        JUMP,
+        CALLING
+    }
+
+    public MovementState movementState;
     public Directions[] directions = new Directions[2]; // 0 = x 1 = y
-    public float walkForce, vDashForce, hDashForce, dashTime, momentumFalloff, leftoverMomentum;
-    public bool canDash = false, dashing = false;
+    public float walkForce, vDashForce, hDashForce, dashTime, momentumFalloff, leftoverMomentum, deathTime, walkThresh;
+    public bool canDash = false, dashing = false, inBubble = true, dead = false;
     public Rigidbody2D playerRB;
     public Vector2 velocity;
     public Ground_Checker groundCheck;
-    public UnityEvent deathEvent;
+    public int animatorValue = 0;
     private int x =0, y = 0;
-    private float dashTimer;
+    private float dashTimer = 0, deathTimer = 0;
+    private Animator anim;
+    private SpriteRenderer sr;
     // Start is called before the first frame update
     void Start()
     {
         groundCheck = this.GetComponentInChildren<Ground_Checker>();
+        anim = this.GetComponent<Animator>();
+        sr = this.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        velocity = playerRB.velocity;
-        InputCheck();
-        DashCheck();
+        if (!dead || Cutscene_Control.gameState != Cutscene_Control.GameState.CUTSCENE)
+        {
+            velocity = playerRB.velocity;
+            InputCheck();
+            DashCheck();
+            StateDeterminer();
+        } else if (dead)
+        {
+            DeathClock();
+        }
     }
 
     private void FixedUpdate()
     {
-        WalkCheck();
+        if (!dead)
+        {
+            WalkCheck();
+        }
+    }
+
+    void StateDeterminer()
+    {
+        if(groundCheck.grounded)
+        {
+            if(Mathf.Abs(playerRB.velocity.x) <=walkThresh)
+            {
+                movementState = MovementState.STAND;
+            } else
+            {
+                movementState = MovementState.WALK;
+            }
+        } else
+        {
+            if(inBubble)
+            {
+                movementState = MovementState.HOVER;
+            }
+            else
+            {
+                if(dashing)
+                {
+                    movementState = MovementState.DASH;
+                } else
+                {
+                    if(playerRB.velocity.y > 0)
+                    {
+                        movementState = MovementState.JUMP;
+                    } else
+                    {
+                        movementState = MovementState.FALL;
+                    }
+                }
+            }
+        }
+
+        if(playerRB.velocity.x > 0)
+        {
+            sr.flipX = true;
+        } else
+        {
+            sr.flipX = false;
+        }
+
+        animatorValue = (int)movementState;
+        anim.SetInteger("animVal", animatorValue);
+    }
+
+    void DeathClock()
+    {
+        deathTimer += Time.deltaTime;
+        movementState = MovementState.DEATH;
+
+        if(deathTimer > deathTime)
+        {
+            this.transform.position = Respawn_Manager.currRespawnPos.position;
+            this.playerRB.velocity = new Vector2(0, 0);
+            dead = false;
+        }
     }
 
 
@@ -157,8 +244,7 @@ public class Player_Movement : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Hazard"))
         {
-            this.transform.position = Respawn_Manager.currRespawnPos.position;
-            deathEvent.Invoke();
+            dead = true;
         }
     }
 }

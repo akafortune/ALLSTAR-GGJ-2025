@@ -18,11 +18,18 @@ public class Ground_Checker : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        grounded = true;
+        if (collision.gameObject.tag.Equals("Ground"))
+        {
+            grounded = true;
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        grounded= false;
+        if (collision.gameObject.tag.Equals("Ground"))
+        {
+            grounded = false;
+        }
     }
 }
