@@ -45,7 +45,7 @@ public class Fader : MonoBehaviour
     public void startFade()
     {
         isFading= true;
-        Audio.StopMusic();
+        //Audio.StopMusic();
         Audio.PlaySFX(SFX.UI_SELECT);
         Audio.PlaySFX(SFX.GAME_ENTRANCE);
     }

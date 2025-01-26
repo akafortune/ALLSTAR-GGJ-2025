@@ -171,9 +171,9 @@ MonoBehaviour:
   _cloudLand: {fileID: 684686875}
   _scuttle: {fileID: 1942339078}
   _door: {fileID: 1404953869}
-  _uiHover: {fileID: 0}
-  _uiSelect: {fileID: 0}
-  _gameEntrance: {fileID: 0}
+  _uiHover: {fileID: 751882411}
+  _uiSelect: {fileID: 1884076056}
+  _gameEntrance: {fileID: 443261849}
 --- !u!4 &59270371
 Transform:
   m_ObjectHideFlags: 0
