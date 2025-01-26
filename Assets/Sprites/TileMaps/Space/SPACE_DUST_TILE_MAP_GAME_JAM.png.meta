@@ -113,8 +113,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_0
       rect:
         serializedVersion: 2
-        x: 112
-        y: 144
+        x: 32
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da30ce305e1e1d54e8224add58ceb614
-      internalID: 204310287
+      spriteID: 8e6ef355fd993e1449d46fca823c52a6
+      internalID: -1380980581
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 144
+        x: 48
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 924d3e1f9bf116245ba08d9ce3820d46
-      internalID: 377581131
+      spriteID: 88c66d808040a464c9ff6f627254f40b
+      internalID: -335460885
       vertices: []
       indices: 
       edges: []
@@ -155,8 +155,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_2
       rect:
         serializedVersion: 2
-        x: 144
-        y: 144
+        x: 64
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c828f5dd357ca5e4496e711c00a29a63
-      internalID: -1817046613
+      spriteID: 7a7aff386b29de24cb337516e0a05202
+      internalID: -1298770593
       vertices: []
       indices: 
       edges: []
@@ -176,8 +176,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_3
       rect:
         serializedVersion: 2
-        x: 112
-        y: 128
+        x: 96
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4df9ed3564b5c9646a7246fc8a120a46
-      internalID: 551211684
+      spriteID: 69e944baea344374688a04ee573757dc
+      internalID: -1603760373
       vertices: []
       indices: 
       edges: []
@@ -197,8 +197,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 112
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51b8569739d13814db8aacef28933fbc
-      internalID: -290006407
+      spriteID: fad8c02ed81d19f41b88a36df2907587
+      internalID: -1881181740
       vertices: []
       indices: 
       edges: []
@@ -218,8 +218,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_5
       rect:
         serializedVersion: 2
-        x: 144
-        y: 128
+        x: 128
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab557cb8bfa6b114d8f0f28b68eb7c41
-      internalID: 723989022
+      spriteID: 1bce18d041db4464bbcb7cedaa54d8ef
+      internalID: -538005956
       vertices: []
       indices: 
       edges: []
@@ -240,7 +240,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 112
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c56374172c45ac439fc71beb72e2c33
-      internalID: 2097883449
+      spriteID: d502fc0eeafeb2a40bd9b08926e28016
+      internalID: -609632707
       vertices: []
       indices: 
       edges: []
@@ -261,7 +261,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 112
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f629d550ed887db4eb8353456c3715c8
-      internalID: 890951677
+      spriteID: 1d34e0999bd399341a620cecca201ef7
+      internalID: 2126081885
       vertices: []
       indices: 
       edges: []
@@ -282,7 +282,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 112
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -292,8 +292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d4e33f6aec5d7843af5e4f2d60fb1bb
-      internalID: 1023594047
+      spriteID: 6435717cb8ae1114093b28bf9767e6f9
+      internalID: -1171278108
       vertices: []
       indices: 
       edges: []
@@ -302,8 +302,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_9
       rect:
         serializedVersion: 2
-        x: 112
-        y: 112
+        x: 96
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -313,8 +313,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e1437df92ab36643ae30e414d2b332a
-      internalID: -1212171446
+      spriteID: de33435547de04541973168e1fa8afd6
+      internalID: 50134233
       vertices: []
       indices: 
       edges: []
@@ -323,8 +323,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_10
       rect:
         serializedVersion: 2
-        x: 128
-        y: 112
+        x: 112
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -334,8 +334,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48e8363122d86704a91ffb2bbb737e09
-      internalID: 1492234127
+      spriteID: cf6bd33bcdfde924a828da3fb34f4614
+      internalID: 1107757225
       vertices: []
       indices: 
       edges: []
@@ -344,8 +344,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_11
       rect:
         serializedVersion: 2
-        x: 144
-        y: 112
+        x: 128
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -355,8 +355,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ed4c8290ef905e45ae7960cf3256124
-      internalID: 319974774
+      spriteID: 81e22c73aed59ec4091121ace7460b96
+      internalID: -293374068
       vertices: []
       indices: 
       edges: []
@@ -365,8 +365,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
+        x: 96
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -376,8 +376,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb49c0405dadb484da4e2d8956a827bb
-      internalID: -1589847081
+      spriteID: 9f0e749b107de6b4ab8ae8d4bc671c86
+      internalID: 296623197
       vertices: []
       indices: 
       edges: []
@@ -386,8 +386,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_13
       rect:
         serializedVersion: 2
-        x: 16
-        y: 96
+        x: 112
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -397,8 +397,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6522e5dffe9c51345bebc1a1b3607b94
-      internalID: 92768787
+      spriteID: bc819e1cfbd2b864e922007f15f3355e
+      internalID: 41565703
       vertices: []
       indices: 
       edges: []
@@ -407,8 +407,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_14
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
+        x: 128
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -418,8 +418,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57ddc9d365949d04284bf1dfe3105df8
-      internalID: -675928037
+      spriteID: fb27a42fa5c909d438e10a680ca110fd
+      internalID: -450598498
       vertices: []
       indices: 
       edges: []
@@ -428,8 +428,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_15
       rect:
         serializedVersion: 2
-        x: 48
-        y: 96
+        x: 112
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -439,8 +439,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c7fd5966c17c4b478c9784fc0df20dc
-      internalID: 615222639
+      spriteID: 977c808481ee77c4faccac1e9d2b4260
+      internalID: -328129049
       vertices: []
       indices: 
       edges: []
@@ -449,8 +449,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_16
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
+        x: 128
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -460,8 +460,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 460da186d52e8cf46aa993c10f62d657
-      internalID: -358528761
+      spriteID: 0abf16df497912d4a829b693cc80d3a2
+      internalID: 1326835226
       vertices: []
       indices: 
       edges: []
@@ -470,8 +470,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_17
       rect:
         serializedVersion: 2
-        x: 112
-        y: 96
+        x: 144
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -481,8 +481,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5923174332d95a41adfa06cf1cf2b06
-      internalID: -1037645297
+      spriteID: b074b8af05997d04794e0826d86cc992
+      internalID: 442796409
       vertices: []
       indices: 
       edges: []
@@ -491,8 +491,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_18
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
+        x: 32
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -502,8 +502,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74e9c981f8756ee43ac9eaccb9638a07
-      internalID: 724900576
+      spriteID: 1db6a73c86c1d0a438ffce5aad623454
+      internalID: -892529520
       vertices: []
       indices: 
       edges: []
@@ -512,8 +512,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_19
       rect:
         serializedVersion: 2
-        x: 144
-        y: 96
+        x: 48
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -523,8 +523,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fc8158cbcd6bce499bd726151793e3e
-      internalID: -1863171114
+      spriteID: 1af9182bd1a93d944b9a9d864330f22e
+      internalID: -258750656
       vertices: []
       indices: 
       edges: []
@@ -533,8 +533,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_20
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
+        x: 64
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -544,8 +544,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28ca72f9f23372c4faafa9207ff129fc
-      internalID: -609815183
+      spriteID: ef91d4f444732034f8ffe96e04e4a797
+      internalID: 1344742897
       vertices: []
       indices: 
       edges: []
@@ -554,8 +554,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_21
       rect:
         serializedVersion: 2
-        x: 16
-        y: 80
+        x: 112
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -565,8 +565,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 883fb01c99d81aa42af2646bb66a5049
-      internalID: -1835068168
+      spriteID: 4886e09287b34de45bf638d730279a28
+      internalID: 1014590294
       vertices: []
       indices: 
       edges: []
@@ -575,8 +575,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_22
       rect:
         serializedVersion: 2
-        x: 112
-        y: 80
+        x: 128
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -586,8 +586,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea2990f428f60a147b1323704f86fc61
-      internalID: -1747751133
+      spriteID: be4b779c510e3834a8e11ddf3d8a1f18
+      internalID: -994583413
       vertices: []
       indices: 
       edges: []
@@ -596,8 +596,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_23
       rect:
         serializedVersion: 2
-        x: 128
-        y: 80
+        x: 144
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -607,8 +607,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd81d81c5c9cdef4daefb53aa4630c1a
-      internalID: -861855779
+      spriteID: 642e2236b42c0534babb0d83a5ba9e29
+      internalID: -993375112
       vertices: []
       indices: 
       edges: []
@@ -617,8 +617,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_24
       rect:
         serializedVersion: 2
-        x: 144
-        y: 80
+        x: 32
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -628,8 +628,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 752da3f92ca2d2146a4991eaf070aa2b
-      internalID: 1937905432
+      spriteID: 9f07ca2b204fcc54b80ee13dc60ee2fc
+      internalID: 693630556
       vertices: []
       indices: 
       edges: []
@@ -638,8 +638,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_25
       rect:
         serializedVersion: 2
-        x: 16
-        y: 64
+        x: 48
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -649,8 +649,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1872e0eb9e95fc940942efd6f20556df
-      internalID: -2133040869
+      spriteID: 15a411ff34d4adc479cf82bf12f4bb0f
+      internalID: 1786692924
       vertices: []
       indices: 
       edges: []
@@ -659,8 +659,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_26
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
+        x: 64
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -670,8 +670,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3724c8c7735864b46b99f34d749be1b1
-      internalID: 346713113
+      spriteID: ee14530eab1ce404aa32f53950d48772
+      internalID: -1677744869
       vertices: []
       indices: 
       edges: []
@@ -680,8 +680,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_27
       rect:
         serializedVersion: 2
-        x: 48
-        y: 64
+        x: 112
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -691,8 +691,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53367412397defb46b2382e9926d1d7f
-      internalID: -1758603723
+      spriteID: a3f8180079e38d7428a622ad20f41301
+      internalID: -1027470011
       vertices: []
       indices: 
       edges: []
@@ -701,8 +701,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_28
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 128
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -712,8 +712,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cbe73a80688b064096d04aa169fe6c8
-      internalID: 1687069231
+      spriteID: 76ec6f0a65dad5d4bb8862d7beefa85d
+      internalID: -206885279
       vertices: []
       indices: 
       edges: []
@@ -722,8 +722,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_29
       rect:
         serializedVersion: 2
-        x: 80
-        y: 64
+        x: 144
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -733,8 +733,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cd24511eb9386042a569982a9a6e188
-      internalID: -375800579
+      spriteID: 9718e80e719a6814592d441fcff92c62
+      internalID: 1077031535
       vertices: []
       indices: 
       edges: []
@@ -743,8 +743,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_30
       rect:
         serializedVersion: 2
-        x: 112
-        y: 64
+        x: 32
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -754,8 +754,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87ca06a196270944894030fd9e8271f7
-      internalID: -1184755192
+      spriteID: 21d36fec8b198e3498474c215a722be6
+      internalID: 1058645858
       vertices: []
       indices: 
       edges: []
@@ -764,8 +764,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_31
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
+        x: 48
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -775,8 +775,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d631ca885037aeb46898f2be1ca1d74f
-      internalID: -1169460589
+      spriteID: 3fe3e8b229d061248a70ee4b6c7ab024
+      internalID: -1480916781
       vertices: []
       indices: 
       edges: []
@@ -785,92 +785,8 @@ TextureImporter:
       name: SPACE_DUST_TILE_MAP_GAME_JAM_32
       rect:
         serializedVersion: 2
-        x: 144
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5251b600adab39c49a4a882690e6f80c
-      internalID: -1710188457
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_33
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e5ce8897cbacb334cbf14a1d12694800
-      internalID: 183034135
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_34
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa8d81a583116b448ae48b6b3be1a0c0
-      internalID: 1268654712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_35
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f8ebd4492baa3ae4e8672c11f69d3461
-      internalID: -1726200072
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_36
-      rect:
-        serializedVersion: 2
         x: 64
-        y: 48
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -880,323 +796,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8883432524add34289956aafd8e2cd2
-      internalID: 1048052963
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_37
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0831a95a6d3ec21448e7c78f7b860807
-      internalID: 355625893
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_38
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 608c7e977fef19a458d0fe6cd8eb54b3
-      internalID: -1998033299
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_39
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9e29a1e05b1a814790ee7878a2ea409
-      internalID: 1085360669
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_40
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d5d1c4e44f3fbc4297212f44b7b89bb
-      internalID: 564904039
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_41
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 780e266d9b271e94ab58237f80486658
-      internalID: 1042181576
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_42
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1fe8debae89f8b948b54208efca82934
-      internalID: 963350956
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_43
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1f29f01ad3e440469059529fec18c8b
-      internalID: 1720066802
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_44
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd46ac2329382b24bbe252b5ae0386ca
-      internalID: -323537682
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_45
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d1a86e52fa57f64fad04ece22358d84
-      internalID: -69592470
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_46
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed4873b6766321c44849d5382a017c58
-      internalID: 393253815
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_47
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41cf2dc88a9c0974faa94760ccb8d1bf
-      internalID: -1901893445
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_48
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6317145b8e9631b44a769362364c9ddd
-      internalID: 1861396689
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_49
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f8f399df7e1d274fa2cbf81b3b4d4ab
-      internalID: 153273214
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_50
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cf01b0058a3e794b8ee94cce564a902
-      internalID: 120068835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SPACE_DUST_TILE_MAP_GAME_JAM_51
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57479e3477eae7c4ab2eb20e0797c29e
-      internalID: 835109140
+      spriteID: fdc1f65a76fcc8042b901d2b50cc806c
+      internalID: 625407131
       vertices: []
       indices: 
       edges: []
@@ -1212,58 +813,39 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SPACE_DUST_TILE_MAP_GAME_JAM_0: 204310287
-      SPACE_DUST_TILE_MAP_GAME_JAM_1: 377581131
-      SPACE_DUST_TILE_MAP_GAME_JAM_10: 1492234127
-      SPACE_DUST_TILE_MAP_GAME_JAM_11: 319974774
-      SPACE_DUST_TILE_MAP_GAME_JAM_12: -1589847081
-      SPACE_DUST_TILE_MAP_GAME_JAM_13: 92768787
-      SPACE_DUST_TILE_MAP_GAME_JAM_14: -675928037
-      SPACE_DUST_TILE_MAP_GAME_JAM_15: 615222639
-      SPACE_DUST_TILE_MAP_GAME_JAM_16: -358528761
-      SPACE_DUST_TILE_MAP_GAME_JAM_17: -1037645297
-      SPACE_DUST_TILE_MAP_GAME_JAM_18: 724900576
-      SPACE_DUST_TILE_MAP_GAME_JAM_19: -1863171114
-      SPACE_DUST_TILE_MAP_GAME_JAM_2: -1817046613
-      SPACE_DUST_TILE_MAP_GAME_JAM_20: -609815183
-      SPACE_DUST_TILE_MAP_GAME_JAM_21: -1835068168
-      SPACE_DUST_TILE_MAP_GAME_JAM_22: -1747751133
-      SPACE_DUST_TILE_MAP_GAME_JAM_23: -861855779
-      SPACE_DUST_TILE_MAP_GAME_JAM_24: 1937905432
-      SPACE_DUST_TILE_MAP_GAME_JAM_25: -2133040869
-      SPACE_DUST_TILE_MAP_GAME_JAM_26: 346713113
-      SPACE_DUST_TILE_MAP_GAME_JAM_27: -1758603723
-      SPACE_DUST_TILE_MAP_GAME_JAM_28: 1687069231
-      SPACE_DUST_TILE_MAP_GAME_JAM_29: -375800579
-      SPACE_DUST_TILE_MAP_GAME_JAM_3: 551211684
-      SPACE_DUST_TILE_MAP_GAME_JAM_30: -1184755192
-      SPACE_DUST_TILE_MAP_GAME_JAM_31: -1169460589
-      SPACE_DUST_TILE_MAP_GAME_JAM_32: -1710188457
-      SPACE_DUST_TILE_MAP_GAME_JAM_33: 183034135
-      SPACE_DUST_TILE_MAP_GAME_JAM_34: 1268654712
-      SPACE_DUST_TILE_MAP_GAME_JAM_35: -1726200072
-      SPACE_DUST_TILE_MAP_GAME_JAM_36: 1048052963
-      SPACE_DUST_TILE_MAP_GAME_JAM_37: 355625893
-      SPACE_DUST_TILE_MAP_GAME_JAM_38: -1998033299
-      SPACE_DUST_TILE_MAP_GAME_JAM_39: 1085360669
-      SPACE_DUST_TILE_MAP_GAME_JAM_4: -290006407
-      SPACE_DUST_TILE_MAP_GAME_JAM_40: 564904039
-      SPACE_DUST_TILE_MAP_GAME_JAM_41: 1042181576
-      SPACE_DUST_TILE_MAP_GAME_JAM_42: 963350956
-      SPACE_DUST_TILE_MAP_GAME_JAM_43: 1720066802
-      SPACE_DUST_TILE_MAP_GAME_JAM_44: -323537682
-      SPACE_DUST_TILE_MAP_GAME_JAM_45: -69592470
-      SPACE_DUST_TILE_MAP_GAME_JAM_46: 393253815
-      SPACE_DUST_TILE_MAP_GAME_JAM_47: -1901893445
-      SPACE_DUST_TILE_MAP_GAME_JAM_48: 1861396689
-      SPACE_DUST_TILE_MAP_GAME_JAM_49: 153273214
-      SPACE_DUST_TILE_MAP_GAME_JAM_5: 723989022
-      SPACE_DUST_TILE_MAP_GAME_JAM_50: 120068835
-      SPACE_DUST_TILE_MAP_GAME_JAM_51: 835109140
-      SPACE_DUST_TILE_MAP_GAME_JAM_6: 2097883449
-      SPACE_DUST_TILE_MAP_GAME_JAM_7: 890951677
-      SPACE_DUST_TILE_MAP_GAME_JAM_8: 1023594047
-      SPACE_DUST_TILE_MAP_GAME_JAM_9: -1212171446
+      SPACE_DUST_TILE_MAP_GAME_JAM_0: -1380980581
+      SPACE_DUST_TILE_MAP_GAME_JAM_1: -335460885
+      SPACE_DUST_TILE_MAP_GAME_JAM_10: 1107757225
+      SPACE_DUST_TILE_MAP_GAME_JAM_11: -293374068
+      SPACE_DUST_TILE_MAP_GAME_JAM_12: 296623197
+      SPACE_DUST_TILE_MAP_GAME_JAM_13: 41565703
+      SPACE_DUST_TILE_MAP_GAME_JAM_14: -450598498
+      SPACE_DUST_TILE_MAP_GAME_JAM_15: -328129049
+      SPACE_DUST_TILE_MAP_GAME_JAM_16: 1326835226
+      SPACE_DUST_TILE_MAP_GAME_JAM_17: 442796409
+      SPACE_DUST_TILE_MAP_GAME_JAM_18: -892529520
+      SPACE_DUST_TILE_MAP_GAME_JAM_19: -258750656
+      SPACE_DUST_TILE_MAP_GAME_JAM_2: -1298770593
+      SPACE_DUST_TILE_MAP_GAME_JAM_20: 1344742897
+      SPACE_DUST_TILE_MAP_GAME_JAM_21: 1014590294
+      SPACE_DUST_TILE_MAP_GAME_JAM_22: -994583413
+      SPACE_DUST_TILE_MAP_GAME_JAM_23: -993375112
+      SPACE_DUST_TILE_MAP_GAME_JAM_24: 693630556
+      SPACE_DUST_TILE_MAP_GAME_JAM_25: 1786692924
+      SPACE_DUST_TILE_MAP_GAME_JAM_26: -1677744869
+      SPACE_DUST_TILE_MAP_GAME_JAM_27: -1027470011
+      SPACE_DUST_TILE_MAP_GAME_JAM_28: -206885279
+      SPACE_DUST_TILE_MAP_GAME_JAM_29: 1077031535
+      SPACE_DUST_TILE_MAP_GAME_JAM_3: -1603760373
+      SPACE_DUST_TILE_MAP_GAME_JAM_30: 1058645858
+      SPACE_DUST_TILE_MAP_GAME_JAM_31: -1480916781
+      SPACE_DUST_TILE_MAP_GAME_JAM_32: 625407131
+      SPACE_DUST_TILE_MAP_GAME_JAM_4: -1881181740
+      SPACE_DUST_TILE_MAP_GAME_JAM_5: -538005956
+      SPACE_DUST_TILE_MAP_GAME_JAM_6: -609632707
+      SPACE_DUST_TILE_MAP_GAME_JAM_7: 2126081885
+      SPACE_DUST_TILE_MAP_GAME_JAM_8: -1171278108
+      SPACE_DUST_TILE_MAP_GAME_JAM_9: 50134233
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
