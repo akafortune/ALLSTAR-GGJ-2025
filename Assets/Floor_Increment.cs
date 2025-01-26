@@ -18,7 +18,10 @@ public class Floor_Increment : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        respawnManager.respawnIndex++;
-        this.gameObject.SetActive(false);
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            respawnManager.respawnIndex++;
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 }

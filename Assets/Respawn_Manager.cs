@@ -6,17 +6,18 @@ public class Respawn_Manager : MonoBehaviour
 {
     public static Transform currRespawnPos;
 
-    public Transform[] respawnPosArr;
     public int respawnIndex = 0;
+    public Transform[] respawnPosArr;
+    
     // Start is called before the first frame update
     void Start()
     {
-        currRespawnPos = respawnPosArr[respawnIndex];
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        currRespawnPos = respawnPosArr[respawnIndex];
     }
 }
