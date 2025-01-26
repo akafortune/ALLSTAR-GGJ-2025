@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using static AudioManager;
 public class SSBubbleScript : MonoBehaviour
 {
     public enum LaunchDirections 
@@ -189,6 +189,7 @@ public class SSBubbleScript : MonoBehaviour
 
         player.AddForce(releaseVector, ForceMode2D.Impulse);
         bubble.playerGO.GetComponent<Player_Movement>().dashing = true;
+        Audio.PlaySFX(SFX.BUBBLE_EXIT);
 
     }
 

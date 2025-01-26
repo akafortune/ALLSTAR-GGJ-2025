@@ -3715,6 +3715,7 @@ MonoBehaviour:
   fader: {fileID: 1848655574}
   isFading: 0
   sceneToLoad: Level 1
+  button: {fileID: 0}
 --- !u!1 &2063765143
 GameObject:
   m_ObjectHideFlags: 0

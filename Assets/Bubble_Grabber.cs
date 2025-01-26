@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Bubble_Drag;
+using static AudioManager;
 
 public class Bubble_Grabber : MonoBehaviour
 {
     public Bubble_Manager manager;
     public float dragSpeed;
+    public bool playedGrabSfx = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,16 @@ public class Bubble_Grabber : MonoBehaviour
     {
         if(manager.bubbleState == Bubble_Manager.BubbleStates.OCCUPIED)
         {
+            if(!playedGrabSfx)
+            {
+                Audio.PlaySFX(SFX.BUBBLE_ENTRY);
+                playedGrabSfx = true;
+            }
+
             DragPlayer();
+        } else
+        {
+            playedGrabSfx = false;
         }
     }
 

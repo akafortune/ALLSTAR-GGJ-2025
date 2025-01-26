@@ -69,7 +69,7 @@ public class AudioManager : MonoBehaviour
         else
             Audio = this;
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         Debug.Log("Audio Manager awake...");
 
