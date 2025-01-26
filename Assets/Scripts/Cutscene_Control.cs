@@ -25,7 +25,7 @@ public class Cutscene_Control : MonoBehaviour
 
     public static GameState gameState;
     public CutsceneState csState;
-    public static bool phoneCollected = true;
+    public static bool phoneCollected = false;
     public Transform enterMark, exitMark, levelEntry;
     public List<string> dialogue;
     private int dialogueIndex = 0;
@@ -47,6 +47,7 @@ public class Cutscene_Control : MonoBehaviour
         csState= CutsceneState.FLYIN;
         player = GameObject.FindGameObjectWithTag("Player");
         playerRB = player.GetComponent<Rigidbody2D>();
+        phoneCollected= false;
     }
 
     // Update is called once per frame
@@ -84,11 +85,8 @@ public class Cutscene_Control : MonoBehaviour
 
         if (csState == CutsceneState.EXIT)
         {
+            
             MoveToMark(exitMark, false);
-        }
-
-        if(csState == CutsceneState.FADING)
-        {
             Fade();
         }
 
@@ -148,11 +146,6 @@ public class Cutscene_Control : MonoBehaviour
                 {
                     csState = CutsceneState.EXIT;
                 }
-            }
-
-            if(csState == CutsceneState.EXIT)
-            {
-                csState = CutsceneState.FADING;
             }
 
             if(csState == CutsceneState.FLYIN)
