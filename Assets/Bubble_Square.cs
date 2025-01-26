@@ -7,15 +7,19 @@ public class Bubble_Square : MonoBehaviour
     bool touched = false, resetting = false;
     public float resetTime;
     private float resetTimer = 0;
+    public bool justRan = false;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        justRan= true;
+
         if (touched)
         {
             bubbleKill();
@@ -25,13 +29,18 @@ public class Bubble_Square : MonoBehaviour
         {
             bubbleReset();
         }
+
+        
+        anim.SetBool("justRan", justRan);
     }
 
     void bubbleKill()
     {
+        anim.SetBool("popped", true);
         this.GetComponent<BoxCollider2D>().enabled = false;
         touched = false;
         resetting = true;
+        justRan= false;
     }
 
     void bubbleReset()
@@ -40,9 +49,11 @@ public class Bubble_Square : MonoBehaviour
 
         if(resetTimer >= resetTime)
         {
+            anim.SetBool("popped", false);
             resetting = false;
             resetTimer = 0;
             this.GetComponent<BoxCollider2D>().enabled = true;
+            justRan= false;
         }
     }
 

@@ -11329,11 +11329,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3024563681664981039, guid: 6363f560dc6cd8844a514911d9c59525, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.7
+      value: -7.99
       objectReference: {fileID: 0}
     - target: {fileID: 3024563681664981039, guid: 6363f560dc6cd8844a514911d9c59525, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.67
+      value: -3.2
       objectReference: {fileID: 0}
     - target: {fileID: 3024563681664981039, guid: 6363f560dc6cd8844a514911d9c59525, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11378,6 +11378,14 @@ PrefabInstance:
     - target: {fileID: 4545937956225339315, guid: 6363f560dc6cd8844a514911d9c59525, type: 3}
       propertyPath: launchDirections.Array.data[0]
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8334599017731742680, guid: 6363f560dc6cd8844a514911d9c59525, type: 3}
+      propertyPath: m_Radius
+      value: 1.8584876
+      objectReference: {fileID: 0}
+    - target: {fileID: 8334599017731742680, guid: 6363f560dc6cd8844a514911d9c59525, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12780,7 +12788,7 @@ Tilemap:
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -16, y: -6, z: 0}
-  m_Size: {x: 32, y: 68, z: 1}
+  m_Size: {x: 50, y: 68, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
