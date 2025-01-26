@@ -39,12 +39,14 @@ public class Player_Movement : MonoBehaviour
     private float dashTimer = 0, deathTimer = 0;
     private Animator anim;
     private SpriteRenderer sr;
+    private Cutscene_Control csc;
     // Start is called before the first frame update
     void Start()
     {
         groundCheck = this.GetComponentInChildren<Ground_Checker>();
         anim = this.GetComponent<Animator>();
         sr = this.GetComponent<SpriteRenderer>();
+        csc = this.GetComponent<Cutscene_Control>();
     }
 
     // Update is called once per frame
@@ -64,7 +66,7 @@ public class Player_Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!dead)
+        if (!dead && Cutscene_Control.gameState == Cutscene_Control.GameState.GAMEPLAY)
         {
             WalkCheck();
         }
