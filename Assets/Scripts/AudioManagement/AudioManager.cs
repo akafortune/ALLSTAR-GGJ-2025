@@ -15,11 +15,15 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Audio;
 
+    private static Dictionary<SFX, Action> SFXCalls;
+    private static Dictionary<MUSIC, Action> MusicCalls;
+
     #region AudioSources
     [Header("Music")]
     [SerializeField] private AudioSource _levelOneMusic;
     [SerializeField] private AudioSource _levelTwoMusic;
     [SerializeField] private AudioSource _levelThreeMusic;
+    [SerializeField] private AudioSource _titleMusic;
     private bool _musicPlaying = false;
 
 
@@ -61,54 +65,40 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         Debug.Log("Audio Manager awake...");
+
+        SFXCalls = new Dictionary<SFX, Action>
+        {
+            {SFX.BUBBLE_ENTRY, PlayBubbleEntry },
+            {SFX.BUBBLE_EXIT, PlayBubbleExit },
+            {SFX.BUBBLE_POP, PlayBubblePop },
+            {SFX.BUBBLE_REFORM, PlayBubbleReform },
+            {SFX.SCUTTLE, PlayScuttle },
+            {SFX.CLOUD_LAND, PlayCloudLand },
+            {SFX.DOOR, PlayDoor },
+            {SFX.BURGER_TALK, PlayBurgerTalk },
+            {SFX.FALL, PlayFall },
+            {SFX.HANG_UP_CLICK, PlayHangUpClick },
+            {SFX.HANG_UP_TONE, PlayHangUpTone },
+            {SFX.PHONE_RING, PlayPhoneRing },
+            {SFX.SQUARE_BOUNCE, PlaySquareBounce },
+            {SFX.PICK_UP_CLICK, PlayPickUpClick }
+        };
+
+        MusicCalls = new Dictionary<MUSIC, Action>
+        {
+            {MUSIC.LEVEL_1, PlayLevelOneMusic },
+            {MUSIC.LEVEL_2, PlayLevelTwoMusic },
+            {MUSIC.LEVEL_3, PlayLevelThreeMusic },
+            {MUSIC.TITLE, PlayTitleMusic }
+        };
     }
     #endregion
 
     #region MusicCalls
     public void PlayMusic(MUSIC music)
     {
-        switch(music)
-        {
-            case MUSIC.LEVEL_1:
-                if (!_musicPlaying)
-                {
-                    _levelOneMusic.Play();
-                    _musicPlaying = true;
-                }
-                else
-                {
-                    StopMusic();
-                    _levelOneMusic.Play();
-                    _musicPlaying = true;
-                }
-                break;
-            case MUSIC.LEVEL_2:
-                if (!_musicPlaying)
-                {
-                    _levelTwoMusic.Play();
-                    _musicPlaying = true;
-                }
-                else
-                {
-                    StopMusic();
-                    _levelTwoMusic.Play();
-                    _musicPlaying = true;
-                }
-                break;
-            case MUSIC.LEVEL_3:
-                if(!_musicPlaying)
-                {
-                    _levelThreeMusic.Play();
-                    _musicPlaying = true;
-                }
-                else
-                {
-                    StopMusic();
-                    _levelThreeMusic.Play();
-                    _musicPlaying = true;
-                }
-                break;
-        }
+        Action action = MusicCalls[music];
+        action.Invoke();
     }
 
     public void StopMusic()
@@ -116,103 +106,188 @@ public class AudioManager : MonoBehaviour
         _levelOneMusic.Stop();
         _levelTwoMusic.Stop();
         _levelThreeMusic.Stop();
+        _titleMusic.Stop();
         _musicPlaying = false;
+    }
+
+    private void PlayLevelOneMusic()
+    {
+
+        if(_musicPlaying)
+        {
+            StopMusic();
+        }
+        _levelOneMusic.Play();
+        _musicPlaying = true;
+    }
+
+    private void PlayLevelTwoMusic()
+    {
+        if (_musicPlaying)
+        {
+            StopMusic();
+        }
+        _levelTwoMusic.Play();
+        _musicPlaying = true;
+    }
+
+    private void PlayLevelThreeMusic()
+    {
+        if (_musicPlaying)
+        {
+            StopMusic();
+        }
+        _levelThreeMusic.Play();
+        _musicPlaying = true;
+    }
+
+    private void PlayTitleMusic()
+    {
+        if (_musicPlaying)
+        {
+            StopMusic();
+        }
+        _titleMusic.Play();
+        _musicPlaying = true;
     }
     #endregion
 
     #region SFX Calls
     public void PlaySFX(SFX sfx)
     {
-        switch (sfx) {
-            case SFX.BUBBLE_POP:
-                _bubblePop.Play();
-                break;
-            case SFX.BUBBLE_ENTRY:
-                _bubbleEntry.Play();
-                break;
-            case SFX.BUBBLE_EXIT:
-                _bubbleExit.Play();
-                break;
-            case SFX.BUBBLE_REFORM:
-                _bubbleReform.Play();
-                break;
-            case SFX.PHONE_TALK:
-                PlayPhoneTalk();
-                break;
-            case SFX.PICK_UP_CLICK:
-                if (_phoneRingPlaying)
-                {
-                    _phoneRing.Stop();
-                    _phoneRingPlaying = false;
-                }
-                _pickUpClick.Play();
-                break;
-            case SFX.HANG_UP_TONE:
-                _hangUpTone.Play();
-                _hangUpTonePlaying = true;
-                break;
-            case SFX.HANG_UP_CLICK:
-                if(_hangUpTonePlaying)
-                {
-                    _hangUpTone.Stop();
-                    _hangUpTonePlaying = false;
-                }
-                _hangUpClick.Play();
-                break;
-            case SFX.PHONE_RING:
-                if (!_phoneRingPlaying)
-                {
-                    _phoneRing.Play();
-                    _phoneRingPlaying = true;
-                } else
-                {
-                    _phoneRing.Stop();
-                    _phoneRingPlaying = false;
-                }
-                break;
-            case SFX.FALL:
-                if(!_fallPlaying)
-                {
-                    _fall.Play();
-                    _fallPlaying = true;
-                }
-                else
-                {
-                    _fall.Stop();
-                    _fallPlaying = false;
-                }
-                break;
-            case SFX.CLOUD_LAND:
-                if (_fallPlaying)
-                {
-                    _fall.Stop();
-                    _fallPlaying = false;
-                }
-                _cloudLand.Play();
-                break;
-            case SFX.SQUARE_BOUNCE:
-                _squareBounce.Play();
-                break;
-            case SFX.BURGER_TALK:
-                PlayBurgerTalk();
-                break;
-            case SFX.SCUTTLE:
-                if(!_scuttlePlaying)
-                {
-                    _scuttle.Play();
-                    _scuttlePlaying = true;
-                }
-                else
-                {
-                    _scuttle.Stop();
-                    _scuttlePlaying = false;
-                }
-                break;
-            case SFX.DOOR:
-                _door.Play();
-                break;
-                
+        Action action = SFXCalls[sfx];
+        action.Invoke();
+    }
+
+    private void PlayBubblePop()
+    {
+        _bubblePop.Play();
+    }
+
+    private void PlayBubbleEntry()
+    {
+        if(_fallPlaying)
+        {
+            _fall.Stop();
+            _fallPlaying = false;
         }
+        _bubbleEntry.Play();
+    }
+
+    private void PlayBubbleExit()
+    {
+        _bubbleExit.Play();
+    }
+
+    private void PlayBubbleReform()
+    {
+        _bubbleReform.Play();
+    }
+
+    private void PlaySquareBounce()
+    {
+        if (_fallPlaying)
+        {
+            _fall.Stop();
+            _fallPlaying = false;
+        }
+        _squareBounce.Play();
+    }
+
+    private void PlayPhoneRing()
+    {
+        if(!_phoneRingPlaying)
+        {
+            _phoneRing.Play();
+            _phoneRingPlaying = true;
+        }
+        else
+        {
+            _phoneRing.Stop();
+            _phoneRingPlaying = false;
+        }
+    }
+
+    private void PlayPickUpClick()
+    {
+        if (!_phoneRingPlaying)
+        {
+            _pickUpClick.Play();
+        } else
+        {
+            PlayPhoneRing();
+            _pickUpClick.Play();
+        }
+    }
+
+    private void PlayHangUpTone()
+    {
+        if(!_hangUpTonePlaying)
+        {
+            _hangUpTone.Play();
+            _hangUpTonePlaying = true;
+        }
+        else
+        {
+            _hangUpTone.Stop();
+            _hangUpTonePlaying = false;
+        }
+    }
+
+    private void PlayHangUpClick()
+    {
+        if(!_hangUpTonePlaying)
+        {
+            _hangUpClick.Play();
+        }
+        else
+        {
+            PlayHangUpTone();
+            _hangUpClick.Play();
+        }
+    }
+
+    private void PlayFall()
+    {
+        if(!_fallPlaying)
+        {
+            _fall.Play();
+            _fallPlaying = true;
+        }
+        else
+        {
+            _fall.Stop();
+            _fallPlaying = false;
+        }
+    }
+
+    private void PlayCloudLand()
+    {
+        if (_fallPlaying)
+        {
+            _fall.Stop();
+            _fallPlaying = false;
+        }
+        _cloudLand.Play();
+    }
+
+    private void PlayScuttle()
+    {
+        if(!_scuttlePlaying)
+        {
+            _scuttle.Play();
+            _scuttlePlaying = true;
+        }
+        else
+        {
+            _scuttle.Stop();
+            _scuttlePlaying = false;
+        }
+    }
+
+    private void PlayDoor()
+    {
+        _door.Play();
     }
 
     private void PlayPhoneTalk()
@@ -272,6 +347,6 @@ public class AudioManager : MonoBehaviour
     public enum SFX { PHONE_RING, BUBBLE_ENTRY, BUBBLE_EXIT, BUBBLE_POP, BUBBLE_REFORM, FALL, 
         CLOUD_LAND, PHONE_TALK, HANG_UP_TONE, PICK_UP_CLICK, HANG_UP_CLICK, SQUARE_BOUNCE,
         BURGER_TALK, SCUTTLE, DOOR }
-    public enum MUSIC { LEVEL_1, LEVEL_2, LEVEL_3 }
+    public enum MUSIC { LEVEL_1, LEVEL_2, LEVEL_3, TITLE }
     #endregion
 }

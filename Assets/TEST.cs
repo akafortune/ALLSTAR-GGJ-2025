@@ -14,6 +14,8 @@ public class TEST : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.I))
+            Audio.PlayMusic(MUSIC.LEVEL_3);
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Audio.PlaySFX(SFX.BURGER_TALK);
