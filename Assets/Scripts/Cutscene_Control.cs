@@ -19,13 +19,14 @@ public class Cutscene_Control : MonoBehaviour
         ENTER,
         TALK,
         EXIT,
-        FADING
+        FADING,
+        FLYIN
     }
 
     public static GameState gameState;
     public CutsceneState csState;
     public static bool phoneCollected = true;
-    public Transform enterMark, exitMark;
+    public Transform enterMark, exitMark, levelEntry;
     public List<string> dialogue;
     private int dialogueIndex = 0;
     public List<bool> isBabble;
@@ -43,7 +44,7 @@ public class Cutscene_Control : MonoBehaviour
     void Start()
     {
         gameState = GameState.CUTSCENE;
-        csState= CutsceneState.NONE;
+        csState= CutsceneState.FLYIN;
         player = GameObject.FindGameObjectWithTag("Player");
         playerRB = player.GetComponent<Rigidbody2D>();
     }
@@ -90,6 +91,11 @@ public class Cutscene_Control : MonoBehaviour
         {
             Fade();
         }
+
+        if(csState == CutsceneState.FLYIN)
+        {
+            MoveToMark(levelEntry, false);
+        }
     }
 
     void Fade()
@@ -116,11 +122,11 @@ public class Cutscene_Control : MonoBehaviour
         }
     }
 
-    void MoveToMark(Transform mark, bool entering)
+    void MoveToMark(Transform mark, bool walking)
     {
         float speed = 0;
 
-        if(entering)
+        if(walking)
         {
             speed = walkSpeed;
         } else
@@ -147,6 +153,12 @@ public class Cutscene_Control : MonoBehaviour
             if(csState == CutsceneState.EXIT)
             {
                 csState = CutsceneState.FADING;
+            }
+
+            if(csState == CutsceneState.FLYIN)
+            {
+                gameState = GameState.GAMEPLAY;
+                csState = CutsceneState.NONE;
             }
             
         }
