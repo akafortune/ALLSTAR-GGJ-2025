@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107c2df94a8aaea449067693e5f59cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
+  manager: {fileID: 8796622406999404026}
 --- !u!114 &4545937956225339315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   vDashForce: 5
   hDashForce: 5
   dashTime: 0.25
-  bubble: {fileID: 0}
+  bubble: {fileID: 8796622406999404026}
   windSpeed: 10
   returnSpeed: 15
   windDistance: 3
