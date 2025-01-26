@@ -190,6 +190,7 @@ public class SSBubbleScript : MonoBehaviour
         player.AddForce(releaseVector, ForceMode2D.Impulse);
         bubble.playerGO.GetComponent<Player_Movement>().dashing = true;
 
+        bubble.playerGO.GetComponent<Player_Movement>().inFlight = true;
     }
 
     private void handleLaunch(){
