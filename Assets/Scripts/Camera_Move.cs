@@ -15,7 +15,7 @@ public class Camera_Move : MonoBehaviour
 
     void NextCam()
     {
-        if (camCt < virtCams.Count - 1) //moves to next camera
+        if (camCt < virtCams.Count) //moves to next camera
         {
             camCt++;
             virtCams[camCt].SetActive(true);

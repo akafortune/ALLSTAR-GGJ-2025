@@ -11257,6 +11257,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6543959528367966241, guid: 9883a385cea3a63479f5eb85841a945c, type: 3}
   m_PrefabInstance: {fileID: 1032071900}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &408021060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6262275990145707444, guid: 45fb4cec58af24649bcc2faf9bed7f93, type: 3}
+  m_PrefabInstance: {fileID: 2285733472111934482}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &412706419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17508,7 +17513,7 @@ Transform:
   m_GameObject: {fileID: 1376743606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.4, y: -7, z: 0}
+  m_LocalPosition: {x: 9, y: -3.6, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18586,6 +18591,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5682089486361590785, guid: 3749e28fda340fb488e6c1ec33164a7b, type: 3}
+      propertyPath: virtCams.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682089486361590785, guid: 3749e28fda340fb488e6c1ec33164a7b, type: 3}
       propertyPath: virtCams.Array.data[0]
       value: 
       objectReference: {fileID: 1520105027}
@@ -18605,6 +18614,14 @@ PrefabInstance:
       propertyPath: virtCams.Array.data[4]
       value: 
       objectReference: {fileID: 154152350}
+    - target: {fileID: 5682089486361590785, guid: 3749e28fda340fb488e6c1ec33164a7b, type: 3}
+      propertyPath: virtCams.Array.data[5]
+      value: 
+      objectReference: {fileID: 408021060}
+    - target: {fileID: 5682089486361590785, guid: 3749e28fda340fb488e6c1ec33164a7b, type: 3}
+      propertyPath: virtCams.Array.data[6]
+      value: 
+      objectReference: {fileID: 408021060}
     - target: {fileID: 5976916022966895811, guid: 3749e28fda340fb488e6c1ec33164a7b, type: 3}
       propertyPath: m_Name
       value: Main Camera

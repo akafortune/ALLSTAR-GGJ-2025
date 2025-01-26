@@ -17789,13 +17789,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0ff8b44c8fb534ba11b2cfa4116473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnIndex: 0
   respawnPosArr:
   - {fileID: 2146323564}
   - {fileID: 1838622018}
   - {fileID: 564049913}
   - {fileID: 101528126}
   - {fileID: 527012983}
-  respawnIndex: 0
 --- !u!1 &2146323563
 GameObject:
   m_ObjectHideFlags: 0
@@ -17904,6 +17904,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45fb4cec58af24649bcc2faf9bed7f93, type: 3}
+--- !u!1 &2285733472111934483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6262275990145707444, guid: 45fb4cec58af24649bcc2faf9bed7f93, type: 3}
+  m_PrefabInstance: {fileID: 2285733472111934482}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6007199885109809577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17973,6 +17978,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5682089486361590785, guid: 3749e28fda340fb488e6c1ec33164a7b, type: 3}
+      propertyPath: virtCams.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682089486361590785, guid: 3749e28fda340fb488e6c1ec33164a7b, type: 3}
       propertyPath: virtCams.Array.data[0]
       value: 
       objectReference: {fileID: 1520105027}
@@ -17992,6 +18001,10 @@ PrefabInstance:
       propertyPath: virtCams.Array.data[4]
       value: 
       objectReference: {fileID: 154152350}
+    - target: {fileID: 5682089486361590785, guid: 3749e28fda340fb488e6c1ec33164a7b, type: 3}
+      propertyPath: virtCams.Array.data[5]
+      value: 
+      objectReference: {fileID: 2285733472111934483}
     - target: {fileID: 5976916022966895811, guid: 3749e28fda340fb488e6c1ec33164a7b, type: 3}
       propertyPath: m_Name
       value: Main Camera
