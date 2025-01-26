@@ -15920,6 +15920,11 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &1285954809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5442125968072248478, guid: 13199f90f849a724895bcdb0a4d4efe9, type: 3}
+  m_PrefabInstance: {fileID: 2091362503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1291384796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17662,6 +17667,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4356249683853178253, guid: e3b0f361090285b468198011bc5d14e6, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1285954809}
     - target: {fileID: 5704281405467013422, guid: e3b0f361090285b468198011bc5d14e6, type: 3}
       propertyPath: m_LocalPosition.y
       value: -97.5
