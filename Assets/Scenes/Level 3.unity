@@ -18294,6 +18294,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8747829376027029413, guid: 9e646500ac6db334a94d8d1c5a0f4542, type: 3}
   m_PrefabInstance: {fileID: 1370018987}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1797845618
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1938665064260014654, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: m_Name
+      value: Cutscene Control New 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075837524976488979, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.7171173
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075837524976488979, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 91.93603
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075837524976488979, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.84670454
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075837524976488979, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075837524976488979, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075837524976488979, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075837524976488979, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075837524976488979, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075837524976488979, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075837524976488979, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
 --- !u!1 &1838622017
 GameObject:
   m_ObjectHideFlags: 0
@@ -18833,6 +18890,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cutscene Control New
       objectReference: {fileID: 0}
+    - target: {fileID: 1938665064260014654, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4075837524976488979, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.7171173
@@ -19170,3 +19231,4 @@ SceneRoots:
   - {fileID: 431026423}
   - {fileID: 1230209874540999974}
   - {fileID: 372210779}
+  - {fileID: 1797845618}
