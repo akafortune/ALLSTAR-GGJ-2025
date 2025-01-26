@@ -22,13 +22,13 @@ public class Moving_Platform : MonoBehaviour
             {
                 nextPt = pt2.position;
             }
-            else if (nextPt == pt1.position)
+            else
             {
                 nextPt = pt1.position;
             }
         }
  
-        transform.position = Vector3.Lerp(transform.position, nextPt, Time.deltaTime * 5f);
+        transform.position = Vector3.MoveTowards(transform.position, nextPt, Time.deltaTime * 7f);
     }
 
 }
