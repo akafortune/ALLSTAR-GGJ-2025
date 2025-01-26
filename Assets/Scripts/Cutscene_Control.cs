@@ -50,6 +50,7 @@ public class Cutscene_Control : MonoBehaviour
     private float fadeTimer = 0;
     public TextMeshProUGUI dialogueDisplay;
     public GameObject UI;
+    public bool ringStarted = false;
     public float speakSpeed;
     public string sceneToLoad;
     public Animator portraitAnim;
@@ -78,12 +79,25 @@ public class Cutscene_Control : MonoBehaviour
 
         if(csState== CutsceneState.ENTER)
         {
+            if(!ringStarted)
+            {
+                Audio.PlaySFX(SFX.PHONE_RING);
+                ringStarted = true;
+            }
+
             MoveToMark(enterMark, true);
             player.GetComponent<Player_Movement>().movementState = Player_Movement.MovementState.WALK;
         }
 
         if(csState == CutsceneState.TALK)
         {
+            if (ringStarted)
+            {
+                Audio.PlaySFX(SFX.PHONE_RING);
+                ringStarted = false;
+            }
+            
+
             UI.SetActive(true);
             player.GetComponent<Player_Movement>().movementState = Player_Movement.MovementState.CALLING;
 
@@ -166,18 +180,29 @@ public class Cutscene_Control : MonoBehaviour
     void ResetText()
     {
 
-        if(curSpeaker == Speaker.DOUBLEP)
-        {
-            Audio.PlaySFX(SFX.BURGER_TALK);
-        } if (curSpeaker == Speaker.FISHNCH)
-        {
-            Audio.PlaySFX(SFX.FISH_TALK);
-        } if (curSpeaker == Speaker.SOCRATES)
-        {
-            Audio.PlaySFX(SFX.JELLY_TALK);
-        }
+        
 
         dialogueIndex++;
+
+        if(dialogueIndex >= dialogue.Count)
+        {
+            Audio.PlaySFX(SFX.HANG_UP_CLICK);
+        } else
+        {
+            if (curSpeaker == Speaker.DOUBLEP)
+            {
+                Audio.PlaySFX(SFX.BURGER_TALK);
+            }
+            if (curSpeaker == Speaker.FISHNCH)
+            {
+                Audio.PlaySFX(SFX.FISH_TALK);
+            }
+            if (curSpeaker == Speaker.SOCRATES)
+            {
+                Audio.PlaySFX(SFX.JELLY_TALK);
+            }
+        }
+
         coroutineStarted = false;
         dialogueDisplay.text = "";
         doneTyping = false;
