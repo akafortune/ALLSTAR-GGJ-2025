@@ -23,13 +23,14 @@ public class Cutscene_Control : MonoBehaviour
         FLYIN
     }
 
+    [SerializeField]
     public static GameState gameState;
     public CutsceneState csState;
     public static bool phoneCollected = false;
     public Transform enterMark, exitMark, levelEntry;
     public List<string> dialogue;
-    private int dialogueIndex = 0;
-    public List<bool> isBabble;
+    public int dialogueIndex = 0;
+    public List<bool> isSeal;
     private bool coroutineStarted = false;
     public float walkSpeed, exitSpeed, fadeTime;
     public GameObject player;
@@ -38,8 +39,10 @@ public class Cutscene_Control : MonoBehaviour
     public SpriteRenderer fader;
     private float fadeTimer = 0;
     public TextMeshProUGUI dialogueDisplay;
+    public GameObject UI;
     public float speakSpeed;
     public string sceneToLoad;
+    public Animator portraitAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +51,7 @@ public class Cutscene_Control : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerRB = player.GetComponent<Rigidbody2D>();
         phoneCollected= false;
+        UI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -66,7 +70,13 @@ public class Cutscene_Control : MonoBehaviour
 
         if(csState == CutsceneState.TALK)
         {
+            UI.SetActive(true);
             player.GetComponent<Player_Movement>().movementState = Player_Movement.MovementState.CALLING;
+
+            if (isSeal[dialogueIndex])
+            {
+                portraitAnim.SetBool("seal", isSeal[dialogueIndex]);
+            }
 
             if(!coroutineStarted)
             {
@@ -122,6 +132,7 @@ public class Cutscene_Control : MonoBehaviour
         if(dialogueIndex >= dialogue.Count)
         {
             csState = CutsceneState.EXIT;
+            UI.SetActive(false);
         }
     }
 
@@ -139,7 +150,7 @@ public class Cutscene_Control : MonoBehaviour
 
         player.transform.position = Vector2.MoveTowards(player.transform.position, mark.position, speed * Time.deltaTime);
 
-        if (Mathf.Abs(Vector2.Distance(player.transform.position, mark.position)) <= 0.3)
+        if (Mathf.Abs(Vector2.Distance(player.transform.position, mark.position)) <= 1)
         {
             if(csState == CutsceneState.ENTER)
             {
