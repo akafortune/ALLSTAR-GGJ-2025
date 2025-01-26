@@ -45,6 +45,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _cloudLand;
     [SerializeField] private AudioSource _scuttle;
     private bool _scuttlePlaying = false;
+
+    [Header("Environment")]
+    [SerializeField] private AudioSource _door; 
     #endregion
 
     #region Awake
@@ -205,6 +208,9 @@ public class AudioManager : MonoBehaviour
                     _scuttlePlaying = false;
                 }
                 break;
+            case SFX.DOOR:
+                _door.Play();
+                break;
                 
         }
     }
@@ -265,7 +271,7 @@ public class AudioManager : MonoBehaviour
     #region Enums
     public enum SFX { PHONE_RING, BUBBLE_ENTRY, BUBBLE_EXIT, BUBBLE_POP, BUBBLE_REFORM, FALL, 
         CLOUD_LAND, PHONE_TALK, HANG_UP_TONE, PICK_UP_CLICK, HANG_UP_CLICK, SQUARE_BOUNCE,
-        BURGER_TALK, SCUTTLE }
+        BURGER_TALK, SCUTTLE, DOOR }
     public enum MUSIC { LEVEL_1, LEVEL_2, LEVEL_3 }
     #endregion
 }

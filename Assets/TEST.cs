@@ -8,7 +8,7 @@ public class TEST : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Audio.PlayMusic(MUSIC.LEVEL_1);
+        Audio.PlayMusic(MUSIC.LEVEL_2);
     }
 
     // Update is called once per frame
@@ -37,7 +37,7 @@ public class TEST : MonoBehaviour
             Audio.PlaySFX(SFX.CLOUD_LAND);
         if (Input.GetKeyDown(KeyCode.S))
             Audio.StopMusic();
-        if (Input.GetKeyDown(KeyCode.Colon))
+        if (Input.GetKeyDown(KeyCode.V))
             Audio.PlaySFX(SFX.SCUTTLE);
     }
 }
