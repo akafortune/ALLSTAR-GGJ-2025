@@ -7,11 +7,28 @@ public class Moving_Platform : MonoBehaviour
     public Transform pt1;
     public Transform pt2;
 
-    bool goingToPt1;
+    Vector3 nextPt;
+
+    void Start()
+    {
+        nextPt = pt1.position;
+    }
 
     void Update()
     {
-
+        if (Vector3.Distance(transform.position, nextPt) < 0.2f)
+        {
+            if (nextPt == pt1.position)
+            {
+                nextPt = pt2.position;
+            }
+            else if (nextPt == pt1.position)
+            {
+                nextPt = pt1.position;
+            }
+        }
+ 
+        transform.position = Vector3.Lerp(transform.position, nextPt, Time.deltaTime * 5f);
     }
 
 }
