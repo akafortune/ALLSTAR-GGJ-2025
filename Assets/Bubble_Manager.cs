@@ -17,6 +17,7 @@ public class Bubble_Manager : MonoBehaviour
     public GameObject playerGO;
     public GameObject bubbleRadius;
     public float bubbleRespawnTime, bubbleHoldTimer;
+    public bool scaler;
     private float bHTInitial;
     private float bubbleRespawnTimer = 0;
     private bool resetRan = false;
@@ -56,12 +57,17 @@ public class Bubble_Manager : MonoBehaviour
     void BubbleHoldTimer()
     {
         bubbleHoldTimer -= Time.deltaTime;
-        float timeRatio = bubbleHoldTimer / bHTInitial;
 
-        if(timeRatio > 0)
+        if(scaler)
         {
-            this.transform.localScale = initialScale * timeRatio;
+            float timeRatio = bubbleHoldTimer / bHTInitial;
+
+            if (timeRatio > 0)
+            {
+                this.transform.localScale = initialScale * timeRatio;
+            }
         }
+        
         
 
         if(bubbleHoldTimer <= 0)
@@ -76,7 +82,12 @@ public class Bubble_Manager : MonoBehaviour
     {
         bubbleRespawnTimer += Time.deltaTime;
         bubbleRadius.SetActive(false);
-        this.transform.localScale = initialScale * bubbleRespawnTimer/bubbleRespawnTime;
+
+        if(scaler)
+        {
+            this.transform.localScale = initialScale * bubbleRespawnTimer / bubbleRespawnTime;
+        }
+        
 
         if(bubbleRespawnTimer> bubbleRespawnTime)
         {
@@ -121,8 +132,8 @@ public class Bubble_Manager : MonoBehaviour
         bubbleState = BubbleStates.POPPED;
         bubbleHoldTimer = bHTInitial;
         bubbleRespawnTimer = 0;
-        playerRB = null;
-        playerGO = null;
+        //playerRB = null;
+        //playerGO = null;
         this.GetComponent<BoxCollider2D>().enabled = false;
     }
 }
