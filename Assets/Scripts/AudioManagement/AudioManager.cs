@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 /*
@@ -33,6 +34,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _bubbleExit;
     [SerializeField] private AudioSource _bubbleReform;
     [SerializeField] private AudioSource _squareBounce;
+    [SerializeField] private AudioSource _destructivePop;
 
     [Header("Phone")]
     [SerializeField] private AudioSource _phoneRing;
@@ -51,7 +53,12 @@ public class AudioManager : MonoBehaviour
     private bool _scuttlePlaying = false;
 
     [Header("Environment")]
-    [SerializeField] private AudioSource _door; 
+    [SerializeField] private AudioSource _door;
+
+    [Header("UI")]
+    [SerializeField] private AudioSource _uiHover;
+    [SerializeField] private AudioSource _uiSelect;
+    [SerializeField] private AudioSource _gameEntrance;
     #endregion
 
     #region Awake
@@ -81,7 +88,11 @@ public class AudioManager : MonoBehaviour
             {SFX.HANG_UP_TONE, PlayHangUpTone },
             {SFX.PHONE_RING, PlayPhoneRing },
             {SFX.SQUARE_BOUNCE, PlaySquareBounce },
-            {SFX.PICK_UP_CLICK, PlayPickUpClick }
+            {SFX.PICK_UP_CLICK, PlayPickUpClick },
+            {SFX.UI_SELECT, PlayUISelect },
+            {SFX.UI_HOVER, PlayUIHover },
+            {SFX.GAME_ENTRANCE, PlayGameEntrance },
+            {SFX.DESTRUCTIVE_POP, DestructivePop }
         };
 
         MusicCalls = new Dictionary<MUSIC, Action>
@@ -159,6 +170,26 @@ public class AudioManager : MonoBehaviour
         action.Invoke();
     }
 
+    private void PlayUISelect()
+    {
+        _uiSelect.Play();
+    }
+
+    private void PlayUIHover()
+    {
+        _uiHover.Play();
+    }
+
+    private void PlayGameEntrance()
+    {
+        _gameEntrance.Play();
+    }
+
+    private void DestructivePop()
+    {
+        _destructivePop.Play();
+    }
+    
     private void PlayBubblePop()
     {
         _bubblePop.Play();
@@ -346,7 +377,7 @@ public class AudioManager : MonoBehaviour
     #region Enums
     public enum SFX { PHONE_RING, BUBBLE_ENTRY, BUBBLE_EXIT, BUBBLE_POP, BUBBLE_REFORM, FALL, 
         CLOUD_LAND, PHONE_TALK, HANG_UP_TONE, PICK_UP_CLICK, HANG_UP_CLICK, SQUARE_BOUNCE,
-        BURGER_TALK, SCUTTLE, DOOR }
+        BURGER_TALK, SCUTTLE, DOOR, UI_HOVER, UI_SELECT, GAME_ENTRANCE, DESTRUCTIVE_POP }
     public enum MUSIC { LEVEL_1, LEVEL_2, LEVEL_3, TITLE }
     #endregion
 }
