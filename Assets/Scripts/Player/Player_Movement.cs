@@ -50,7 +50,7 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!dead || Cutscene_Control.gameState != Cutscene_Control.GameState.CUTSCENE)
+        if (!dead && Cutscene_Control.gameState != Cutscene_Control.GameState.CUTSCENE)
         {
             velocity = playerRB.velocity;
             InputCheck();
@@ -125,8 +125,10 @@ public class Player_Movement : MonoBehaviour
         if(deathTimer > deathTime)
         {
             this.transform.position = Respawn_Manager.currRespawnPos.position;
-            this.playerRB.velocity = new Vector2(0, 0);
+            deathTimer = 0;
+            //this.playerRB.velocity = new Vector2(0, 0);
             dead = false;
+            this.GetComponent<BoxCollider2D>().enabled = true;
         }
     }
 
@@ -245,6 +247,7 @@ public class Player_Movement : MonoBehaviour
         if (collision.gameObject.tag.Equals("Hazard"))
         {
             dead = true;
+            this.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }

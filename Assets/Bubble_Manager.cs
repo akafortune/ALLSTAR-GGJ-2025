@@ -22,11 +22,16 @@ public class Bubble_Manager : MonoBehaviour
     private float bubbleRespawnTimer = 0;
     private bool resetRan = false;
     private Vector2 initialScale;
+    private Animator anim;
+    public Animation still, occupied, popped, reform;
+    public bool justPlayed = false;
+    private int animVal = 0;
     // Start is called before the first frame update
     void Start()
     {
         initialScale = new Vector2(this.transform.localScale.x, this.transform.localScale.y);
         bHTInitial = bubbleHoldTimer;
+        anim = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -53,9 +58,18 @@ public class Bubble_Manager : MonoBehaviour
             this.transform.localScale = initialScale;
         }
 
-        
+        if(animVal != (int)bubbleState)
+        {
+            animVal = (int)bubbleState;
+            anim.SetInteger("enumVal", animVal);
+            justPlayed = false;
+        } else
+        {
+            justPlayed = true;
+        }
 
-        IndicatorCheck();
+        anim.SetBool("justPlayed", justPlayed);
+        //IndicatorCheck();
     }
 
     void BubbleHoldTimer()
