@@ -191,6 +191,7 @@ public class SSBubbleScript : MonoBehaviour
         bubble.playerGO.GetComponent<Player_Movement>().dashing = true;
         Audio.PlaySFX(SFX.BUBBLE_EXIT);
 
+        bubble.playerGO.GetComponent<Player_Movement>().inFlight = true;
     }
 
     private void handleLaunch(){

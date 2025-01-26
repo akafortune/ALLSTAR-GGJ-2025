@@ -41,14 +41,16 @@ public class Player_Movement : MonoBehaviour
     private float dashTimer = 0, deathTimer = 0;
     private Animator anim;
     private SpriteRenderer sr;
-    private Cutscene_Control csc;
+    
+    //Clover - Experimental 2
+    public bool inFlight = false;
+
     // Start is called before the first frame update
     void Start()
     {
         groundCheck = this.GetComponentInChildren<Ground_Checker>();
         anim = this.GetComponent<Animator>();
         sr = this.GetComponent<SpriteRenderer>();
-        csc = this.GetComponent<Cutscene_Control>();
     }
 
     // Update is called once per frame
@@ -70,6 +72,7 @@ public class Player_Movement : MonoBehaviour
     {
         if (!dead && Cutscene_Control.gameState == Cutscene_Control.GameState.GAMEPLAY)
         {
+            InFlightCheck(); //Clover - Experimental 
             WalkCheck();
         }
     }
@@ -152,14 +155,14 @@ public class Player_Movement : MonoBehaviour
                 walkDir = -1;
             }
 
-            if (!dashing)
+            if (!dashing && !inFlight) //Clover - Experimental
             {
                 playerRB.velocity = new Vector2((walkDir * walkForce * Time.deltaTime), playerRB.velocity.y) ;
             }
         }
         else
         {
-            if(!dashing)
+            if(!dashing) //Clover - Experimental
             {
                 if(!groundCheck.grounded)
                 {
@@ -214,7 +217,7 @@ public class Player_Movement : MonoBehaviour
 
             Vector2 dashForceVector;
 
-            if (directions[1] == Directions.UP)
+            if (directions[1] == Directions.UP && inFlight == false) //Clover - Experimental
             {
                 dashForceVector = new Vector2(x * vDashForce, y * vDashForce);
             } else
@@ -244,6 +247,17 @@ public class Player_Movement : MonoBehaviour
             }
         }
 
+    } 
+
+    //Clover - Experimental
+    public void InFlightCheck() {
+        if(velocity.x == 0 || 
+            movementState == MovementState.HOVER ||
+            movementState == MovementState.STAND ||
+            movementState == MovementState.WALK ||
+            movementState == MovementState.DEATH) {
+            inFlight = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
