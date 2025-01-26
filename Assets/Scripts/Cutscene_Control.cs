@@ -38,7 +38,8 @@ public class Cutscene_Control : MonoBehaviour
     public List<string> dialogue;
     public int dialogueIndex = 0;
     //public List<bool> isSeal;
-    List<Speaker> speakerList;
+    //List<Speaker> speakerList;
+    public Speaker curSpeaker;
     private bool coroutineStarted = false;
     public float walkSpeed, exitSpeed, fadeTime;
     public GameObject player;
@@ -63,7 +64,7 @@ public class Cutscene_Control : MonoBehaviour
         phoneCollected= false;
         UI.SetActive(false);
 
-        speakerList = new List<Speaker> { Speaker.DOUBLEP, Speaker.FISHNCH, Speaker.SOCRATES };
+        //speakerList = new List<Speaker> { Speaker.DOUBLEP, Speaker.FISHNCH, Speaker.SOCRATES };
     }
 
     // Update is called once per frame
@@ -90,7 +91,7 @@ public class Cutscene_Control : MonoBehaviour
             //portraitAnim.SetBool("seal", isSeal[dialogueIndex]);
             //}
 
-            switch (speakerList[dialogueIndex])
+            switch (curSpeaker)//speakerList[dialogueIndex])
             {
                 case Speaker.DOUBLEP:
                     portraitAnim.SetInteger("speakerNum", 1);
