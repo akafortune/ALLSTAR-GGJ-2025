@@ -23,6 +23,13 @@ public class Cutscene_Control : MonoBehaviour
         FLYIN
     }
 
+    public enum Speaker
+    {
+        DOUBLEP,
+        FISHNCH,
+        SOCRATES
+    }
+
     [SerializeField]
     public static GameState gameState;
     public CutsceneState csState;
@@ -30,7 +37,8 @@ public class Cutscene_Control : MonoBehaviour
     public Transform enterMark, exitMark, levelEntry;
     public List<string> dialogue;
     public int dialogueIndex = 0;
-    public List<bool> isSeal;
+    //public List<bool> isSeal;
+    List<Speaker> speakerList;
     private bool coroutineStarted = false;
     public float walkSpeed, exitSpeed, fadeTime;
     public GameObject player;
@@ -48,10 +56,14 @@ public class Cutscene_Control : MonoBehaviour
     {
         gameState = GameState.CUTSCENE;
         csState= CutsceneState.FLYIN;
+
         player = GameObject.FindGameObjectWithTag("Player");
         playerRB = player.GetComponent<Rigidbody2D>();
+
         phoneCollected= false;
         UI.SetActive(false);
+
+        speakerList = new List<Speaker> { Speaker.DOUBLEP, Speaker.FISHNCH, Speaker.SOCRATES };
     }
 
     // Update is called once per frame
@@ -73,12 +85,25 @@ public class Cutscene_Control : MonoBehaviour
             UI.SetActive(true);
             player.GetComponent<Player_Movement>().movementState = Player_Movement.MovementState.CALLING;
 
-            if (isSeal[dialogueIndex])
+            //if (speaker)//isSeal[dialogueIndex])
+            //{
+            //portraitAnim.SetBool("seal", isSeal[dialogueIndex]);
+            //}
+
+            switch (speakerList[dialogueIndex])
             {
-                portraitAnim.SetBool("seal", isSeal[dialogueIndex]);
+                case Speaker.DOUBLEP:
+                    portraitAnim.SetInteger("speakerNum", 1);
+                    break;
+                case Speaker.FISHNCH:
+                    portraitAnim.SetInteger("speakerNum", 2);
+                    break;
+                default:
+                    portraitAnim.SetInteger("speakerNum", 3);
+                    break;
             }
 
-            if(!coroutineStarted)
+            if (!coroutineStarted)
             {
                 StartCoroutine(Typewriter());
                 coroutineStarted = true;
