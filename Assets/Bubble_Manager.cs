@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Bubble_Drag;
+using static AudioManager;
 
 public class Bubble_Manager : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class Bubble_Manager : MonoBehaviour
     private Vector2 initialScale;
     private Animator anim;
     public Animation still, occupied, popped, reform;
-    public bool justPlayed = false;
+    public bool justPlayed = false, playedPopSfx = false;
     private int animVal = 0;
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,12 @@ public class Bubble_Manager : MonoBehaviour
 
         if (bubbleState == BubbleStates.POPPED)
         {
+            if(!playedPopSfx)
+            {
+                Audio.PlaySFX(SFX.BUBBLE_POP);
+                playedPopSfx=true;
+            }
+
             playerGO.GetComponent<Player_Movement>().inBubble = false;
 
             if (!resetRan)
@@ -56,6 +63,9 @@ public class Bubble_Manager : MonoBehaviour
             
             BubbleRespawnTimer();
             this.transform.localScale = initialScale;
+        } else
+        {
+            playedPopSfx = false;
         }
 
         if(animVal != (int)bubbleState)
@@ -109,6 +119,7 @@ public class Bubble_Manager : MonoBehaviour
 
         if(bubbleRespawnTimer> bubbleRespawnTime)
         {
+            Audio.PlaySFX(SFX.BUBBLE_REFORM);
             bubbleRespawnTimer = 0;
             bubbleState = BubbleStates.UNOCCUPIED;
             bubbleRadius.SetActive(true);

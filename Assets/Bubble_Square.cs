@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static AudioManager;
 
 public class Bubble_Square : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class Bubble_Square : MonoBehaviour
 
     void bubbleKill()
     {
+        Audio.PlaySFX(SFX.SQUARE_BOUNCE);
         anim.SetBool("popped", true);
         this.GetComponent<BoxCollider2D>().enabled = false;
         touched = false;
@@ -54,6 +56,7 @@ public class Bubble_Square : MonoBehaviour
             resetTimer = 0;
             this.GetComponent<BoxCollider2D>().enabled = true;
             justRan= false;
+            Audio.PlaySFX(SFX.BUBBLE_REFORM);
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Events;
+using static AudioManager;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class Player_Movement : MonoBehaviour
     public Vector2 velocity;
     public Ground_Checker groundCheck;
     public int animatorValue = 0;
+    public bool playedSfx = false, stoppedSfx = false;
     private int x =0, y = 0;
     private float dashTimer = 0, deathTimer = 0;
     private Animator anim;

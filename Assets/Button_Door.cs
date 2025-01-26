@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static AudioManager;
 
 public class Button_Door : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Button_Door : MonoBehaviour
 
     List<SpriteRenderer> buttons;
     bool moveEnd = false;
-
+    bool sfxPlayed = false;
     void Start()
     {
         buttons = new List<SpriteRenderer>();
@@ -52,6 +53,11 @@ public class Button_Door : MonoBehaviour
     {
         if (!myCol.enabled && !moveEnd)
         {
+            if(!sfxPlayed)
+            {
+                Audio.PlaySFX(SFX.DOOR);
+                sfxPlayed= true;
+            }
             transform.position = Vector3.MoveTowards(transform.position, moveTarget.transform.position, Time.deltaTime * doorSpeed);
             if (Vector3.Distance(transform.position, moveTarget.transform.position) < 0.2f)
             {

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static AudioManager;
 
 public class Fader : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Fader : MonoBehaviour
     public SpriteRenderer fader;
     public bool isFading = false;
     public string sceneToLoad;
+    public Button button;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,9 @@ public class Fader : MonoBehaviour
     public void startFade()
     {
         isFading= true;
+        Audio.StopMusic();
+        Audio.PlaySFX(SFX.UI_SELECT);
+        Audio.PlaySFX(SFX.GAME_ENTRANCE);
     }
 
     void Fade()
