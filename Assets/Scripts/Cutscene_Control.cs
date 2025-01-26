@@ -61,7 +61,7 @@ public class Cutscene_Control : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerRB = player.GetComponent<Rigidbody2D>();
 
-        phoneCollected= false;
+        phoneCollected= true;
         UI.SetActive(false);
 
         //speakerList = new List<Speaker> { Speaker.DOUBLEP, Speaker.FISHNCH, Speaker.SOCRATES };

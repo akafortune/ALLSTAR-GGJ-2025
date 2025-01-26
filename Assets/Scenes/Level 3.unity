@@ -608,6 +608,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e646500ac6db334a94d8d1c5a0f4542, type: 3}
+--- !u!4 &221045462 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 885952355346030912, guid: 3749e28fda340fb488e6c1ec33164a7b, type: 3}
+  m_PrefabInstance: {fileID: 6007199885109809577}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &265493382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12750,11 +12755,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3358200552806967425, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
       propertyPath: m_fontSize
-      value: 20
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3358200552806967425, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
       propertyPath: m_fontSizeBase
-      value: 20
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4075837524976488979, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12859,6 +12864,51 @@ PrefabInstance:
     - target: {fileID: 8647974586013353549, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
       propertyPath: curSpeaker
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647974586013353549, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: speakSpeed
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647974586013353549, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: sceneToLoad
+      value: Start Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647974586013353549, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647974586013353549, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: Hey kid. You're pretty high up, aint you?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647974586013353549, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: How's the view? Impressive?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647974586013353549, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: Not to burst your bubble or anything, but...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647974586013353549, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: Don't get lost floating around up there.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647974586013353549, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: dialogue.Array.data[4]
+      value: People tend to get their priorities out of whack while searching for
+        the top.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647974586013353549, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: dialogue.Array.data[5]
+      value: You ought to come back down sometime
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647974586013353549, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: dialogue.Array.data[6]
+      value: Just something to think about...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647974586013353549, guid: 568bae34bf572244fa088c8b2ab5d7f7, type: 3}
+      propertyPath: dialogue.Array.data[7]
+      value: I'll see you around.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21470,6 +21520,90 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8747829376027029413, guid: 9e646500ac6db334a94d8d1c5a0f4542, type: 3}
   m_PrefabInstance: {fileID: 1370018987}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1722148637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1722148638}
+  - component: {fileID: 1722148639}
+  m_Layer: 0
+  m_Name: NEW_SPACE_BACKGROUND_GAME_JAM_SPACE_JAM_TEEHEE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1722148638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722148637}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.2, y: 13.5, z: 20}
+  m_LocalScale: {x: 1.1945, y: 1.1945, z: 1.1945}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 221045462}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1722148639
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722148637}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -4
+  m_Sprite: {fileID: 21300000, guid: c44d85f8dbc07f246a6cac6a1ff68bf5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 31.4375, y: 51.5625}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1838622017
 GameObject:
   m_ObjectHideFlags: 0
@@ -22428,10 +22562,12 @@ MonoBehaviour:
   _pickUpClick: {fileID: 1252816144}
   _hangUpClick: {fileID: 1463815631}
   _hangUpTone: {fileID: 2129464887}
+  _yay: {fileID: 0}
   _fall: {fileID: 897582816}
   _cloudLand: {fileID: 1977017788}
   _scuttle: {fileID: 786696252}
   _door: {fileID: 1267390098}
+  _ding: {fileID: 0}
   _uiHover: {fileID: 1641481260}
   _uiSelect: {fileID: 1870427177}
   _gameEntrance: {fileID: 1693811855}
@@ -22916,7 +23052,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6169697937630050629, guid: 3749e28fda340fb488e6c1ec33164a7b, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 885952355346030912, guid: 3749e28fda340fb488e6c1ec33164a7b, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 1722148638}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3749e28fda340fb488e6c1ec33164a7b, type: 3}
 --- !u!1001 &8676418548919105553
