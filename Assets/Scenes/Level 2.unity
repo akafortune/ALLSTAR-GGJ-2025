@@ -17508,6 +17508,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5704281405467013422, guid: e3b0f361090285b468198011bc5d14e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -96.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8981857842969929485, guid: e3b0f361090285b468198011bc5d14e6, type: 3}
       propertyPath: m_Name
       value: Cutscene Control
