@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
+using static AudioManager;
 
 public class Cutscene_Control : MonoBehaviour
 {
@@ -106,6 +107,19 @@ public class Cutscene_Control : MonoBehaviour
 
             if (!coroutineStarted)
             {
+                if (curSpeaker == Speaker.DOUBLEP)
+                {
+                    Audio.PlaySFX(SFX.BURGER_TALK);
+                }
+                if (curSpeaker == Speaker.FISHNCH)
+                {
+                    Audio.PlaySFX(SFX.FISH_TALK);
+                }
+                if (curSpeaker == Speaker.SOCRATES)
+                {
+                    Audio.PlaySFX(SFX.JELLY_TALK);
+                }
+
                 StartCoroutine(Typewriter());
                 coroutineStarted = true;
             }
@@ -151,6 +165,18 @@ public class Cutscene_Control : MonoBehaviour
 
     void ResetText()
     {
+
+        if(curSpeaker == Speaker.DOUBLEP)
+        {
+            Audio.PlaySFX(SFX.BURGER_TALK);
+        } if (curSpeaker == Speaker.FISHNCH)
+        {
+            Audio.PlaySFX(SFX.FISH_TALK);
+        } if (curSpeaker == Speaker.SOCRATES)
+        {
+            Audio.PlaySFX(SFX.JELLY_TALK);
+        }
+
         dialogueIndex++;
         coroutineStarted = false;
         dialogueDisplay.text = "";

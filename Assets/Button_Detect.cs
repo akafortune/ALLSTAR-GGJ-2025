@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static AudioManager;
 
 
 //https://gamedev.stackexchange.com/questions/151670/how-to-detect-collision-occurring-on-a-child-object-from-a-parent-script
@@ -20,6 +21,7 @@ public class Button_Detect : MonoBehaviour
     {
         if (col.gameObject.tag.Equals("Player"))
         {
+            Audio.PlaySFX(SFX.DING);
             transform.parent.gameObject.SendMessage("ButtonHit", this.gameObject.GetComponent<SpriteRenderer>());
             sr.sprite = on;
             myCol.enabled = false;
