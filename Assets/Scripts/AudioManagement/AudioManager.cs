@@ -17,7 +17,9 @@ public class AudioManager : MonoBehaviour
 
     #region AudioSources
     [Header("Music")]
-    [SerializeField] private AudioSource _music;
+    [SerializeField] private AudioSource _levelOneMusic;
+    [SerializeField] private AudioSource _levelTwoMusic;
+    [SerializeField] private AudioSource _levelThreeMusic;
     private bool _musicPlaying = false;
 
 
@@ -26,27 +28,28 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _bubbleEntry;
     [SerializeField] private AudioSource _bubbleExit;
     [SerializeField] private AudioSource _bubbleReform;
+    [SerializeField] private AudioSource _squareBounce;
 
     [Header("Phone")]
     [SerializeField] private AudioSource _phoneRing;
     private bool _phoneRingPlaying = false;
     [SerializeField] private AudioSource _phoneTalk;
-    [SerializeField] private AudioSource _phonePickUp;
-    [SerializeField] private AudioSource _phoneHangUp;
-    [SerializeField] private AudioSource _phoneTone;
-    private bool _phoneTonePlaying = false;
+    [SerializeField] private AudioSource _pickUpClick;
+    [SerializeField] private AudioSource _hangUpClick;
+    [SerializeField] private AudioSource _hangUpTone;
+    private bool _hangUpTonePlaying = false;
 
     [Header("Movement")]
     [SerializeField] private AudioSource _fall;
     private bool _fallPlaying = false;
     [SerializeField] private AudioSource _cloudLand;
+    [SerializeField] private AudioSource _scuttle;
+    private bool _scuttlePlaying = false;
     #endregion
 
     #region Awake
     private void Awake()
     {
-        //  = GetComponent<AudioSource>();
-
         if (Audio != null)
             Destroy(gameObject);
         else
@@ -59,36 +62,58 @@ public class AudioManager : MonoBehaviour
     #endregion
 
     #region MusicCalls
-    public void StopMusic()
-    {
-        _music.Stop();
-        _musicPlaying = false;
-    }
-
     public void PlayMusic(MUSIC music)
     {
         switch(music)
         {
-            case MUSIC.LEVEL:
-                _music.Play();
-                _musicPlaying = true;
+            case MUSIC.LEVEL_1:
                 if (!_musicPlaying)
                 {
-                    _music.Play();
+                    _levelOneMusic.Play();
                     _musicPlaying = true;
                 }
                 else
                 {
-                    _music.Stop();
-                    _musicPlaying = false;
+                    StopMusic();
+                    _levelOneMusic.Play();
+                    _musicPlaying = true;
+                }
+                break;
+            case MUSIC.LEVEL_2:
+                if (!_musicPlaying)
+                {
+                    _levelTwoMusic.Play();
+                    _musicPlaying = true;
+                }
+                else
+                {
+                    StopMusic();
+                    _levelTwoMusic.Play();
+                    _musicPlaying = true;
+                }
+                break;
+            case MUSIC.LEVEL_3:
+                if(!_musicPlaying)
+                {
+                    _levelThreeMusic.Play();
+                    _musicPlaying = true;
+                }
+                else
+                {
+                    StopMusic();
+                    _levelThreeMusic.Play();
+                    _musicPlaying = true;
                 }
                 break;
         }
-        if (!_musicPlaying)
-        {
-            _music.Play();
-            _musicPlaying = true;
-        }
+    }
+
+    public void StopMusic()
+    {
+        _levelOneMusic.Stop();
+        _levelTwoMusic.Stop();
+        _levelThreeMusic.Stop();
+        _musicPlaying = false;
     }
     #endregion
 
@@ -111,25 +136,25 @@ public class AudioManager : MonoBehaviour
             case SFX.PHONE_TALK:
                 PlayPhoneTalk();
                 break;
-            case SFX.PHONE_PICK_UP:
+            case SFX.PICK_UP_CLICK:
                 if (_phoneRingPlaying)
                 {
                     _phoneRing.Stop();
                     _phoneRingPlaying = false;
                 }
-                _phonePickUp.Play();
+                _pickUpClick.Play();
                 break;
-            case SFX.PHONE_TONE:
-                _phoneTone.Play();
-                _phoneTonePlaying = true;
+            case SFX.HANG_UP_TONE:
+                _hangUpTone.Play();
+                _hangUpTonePlaying = true;
                 break;
-            case SFX.PHONE_HANG_UP:
-                if(_phoneTonePlaying)
+            case SFX.HANG_UP_CLICK:
+                if(_hangUpTonePlaying)
                 {
-                    _phoneTone.Stop();
-                    _phoneTonePlaying = false;
+                    _hangUpTone.Stop();
+                    _hangUpTonePlaying = false;
                 }
-                _phoneHangUp.Play();
+                _hangUpClick.Play();
                 break;
             case SFX.PHONE_RING:
                 if (!_phoneRingPlaying)
@@ -162,6 +187,25 @@ public class AudioManager : MonoBehaviour
                 }
                 _cloudLand.Play();
                 break;
+            case SFX.SQUARE_BOUNCE:
+                _squareBounce.Play();
+                break;
+            case SFX.BURGER_TALK:
+                PlayBurgerTalk();
+                break;
+            case SFX.SCUTTLE:
+                if(!_scuttlePlaying)
+                {
+                    _scuttle.Play();
+                    _scuttlePlaying = true;
+                }
+                else
+                {
+                    _scuttle.Stop();
+                    _scuttlePlaying = false;
+                }
+                break;
+                
         }
     }
 
@@ -187,9 +231,41 @@ public class AudioManager : MonoBehaviour
         }
         _phoneTalk.Play();
     }
+
+    private void PlayBurgerTalk()
+    {
+        string path = "SFX/PhoneSounds/CharacterVoices/Burger/";
+        int rnd = UnityEngine.Random.Range(0, 4);
+        Debug.Log(rnd);
+
+        if (rnd == 0)
+        {
+            _phoneTalk.clip = Resources.Load<AudioClip>(path + "BURGER_TALK_1");
+            Debug.Log("1");
+        }
+        else if (rnd == 1)
+        {
+            _phoneTalk.clip = Resources.Load<AudioClip>(path + "BURGER_TALK_2");
+            Debug.Log("2");
+        }
+        else if (rnd == 2)
+        {
+            _phoneTalk.clip = Resources.Load<AudioClip>(path + "BURGER_TALK_3");
+            Debug.Log("3");
+        }
+        else
+        {
+            _phoneTalk.clip = Resources.Load<AudioClip>(path + "BURGER_TALK_4");
+            Debug.Log("4");
+        }
+        _phoneTalk.Play();
+    }
     #endregion
 
+    #region Enums
     public enum SFX { PHONE_RING, BUBBLE_ENTRY, BUBBLE_EXIT, BUBBLE_POP, BUBBLE_REFORM, FALL, 
-        CLOUD_LAND, PHONE_TALK, PHONE_TONE, PHONE_PICK_UP, PHONE_HANG_UP }
-    public enum MUSIC { LEVEL }
+        CLOUD_LAND, PHONE_TALK, HANG_UP_TONE, PICK_UP_CLICK, HANG_UP_CLICK, SQUARE_BOUNCE,
+        BURGER_TALK, SCUTTLE }
+    public enum MUSIC { LEVEL_1, LEVEL_2, LEVEL_3 }
+    #endregion
 }
