@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
 using static AudioManager;
 
@@ -79,6 +78,7 @@ public class Cutscene_Control : MonoBehaviour
 
         if(csState== CutsceneState.ENTER)
         {
+            //player.GetComponent<Player_Movement>().movementState = Player_Movement.MovementState.WALK;
             if(!ringStarted)
             {
                 Audio.PlaySFX(SFX.PHONE_RING);
@@ -91,6 +91,7 @@ public class Cutscene_Control : MonoBehaviour
 
         if(csState == CutsceneState.TALK)
         {
+            player.GetComponent<Player_Movement>().movementState = Player_Movement.MovementState.STAND;
             if (ringStarted)
             {
                 Audio.PlaySFX(SFX.PHONE_RING);
@@ -99,7 +100,7 @@ public class Cutscene_Control : MonoBehaviour
             
 
             UI.SetActive(true);
-            player.GetComponent<Player_Movement>().movementState = Player_Movement.MovementState.CALLING;
+            //player.GetComponent<Player_Movement>().movementState = Player_Movement.MovementState.CALLING;
 
             //if (speaker)//isSeal[dialogueIndex])
             //{
