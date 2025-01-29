@@ -29,6 +29,20 @@ public class Camera_Move : MonoBehaviour
         }
     }
 
+    void PreviousCam(){
+        if (camCt > 0) { //dont move the camera below the first screen
+            camCt--;
+            virtCams[camCt].SetActive(true);
+            virtCams[camCt + 1].SetActive(false);
+        } else {
+            //reset to first camera
+            camCt = 0;
+            virtCams[camCt].SetActive(true);
+            virtCams[virtCams.Count - 1].SetActive(false);
+        }
+    }
+    
+
     void CutsceneCamSet()
     {
         foreach (GameObject camObj in virtCams)
